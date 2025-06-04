@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<meta name="author" content="Tomonori Hoshi, Erina Ishigaki, Sathoshi Kaneko" />
+
+<meta name="date" content="2025-06-02" />
+
+<title>jpinfect: Notifiable Infectious Diseases in Japan</title>
+
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
+
+<style type="text/css">
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+
+<style type="text/css">
+code {
+white-space: pre;
+}
+.sourceCode {
+overflow: visible;
+}
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">jpinfect: Notifiable Infectious Diseases in
+Japan</h1>
+<h4 class="author">Tomonori Hoshi, Erina Ishigaki, Sathoshi Kaneko</h4>
+<h4 class="date">2025-06-02</h4>
+
+
+<div id="TOC">
+<ul>
+<li><a href="#introduction" id="toc-introduction">Introduction</a>
+<ul>
+<li><a href="#dependencies" id="toc-dependencies">Dependencies</a></li>
+<li><a href="#installation" id="toc-installation">Installation</a></li>
+<li><a href="#usage" id="toc-usage">Usage</a>
+<ul>
+<li><a href="#built-in-datasets" id="toc-built-in-datasets">Built-in
+Datasets</a></li>
+<li><a href="#data-merging" id="toc-data-merging">Data Merging</a></li>
+<li><a href="#data-transformation-from-wider-to-longer-vice-versa" id="toc-data-transformation-from-wider-to-longer-vice-versa">Data
+Transformation from Wider to Longer; Vice Versa</a></li>
+</ul></li>
+<li><a href="#building-datasets-from-source" id="toc-building-datasets-from-source">Building Datasets from Source</a>
+<ul>
+<li><a href="#data-source-checks" id="toc-data-source-checks">Data
+Source Checks</a></li>
+<li><a href="#data-acquisition" id="toc-data-acquisition">Data
+Acquisition</a></li>
+<li><a href="#data-import" id="toc-data-import">Data Import</a></li>
+</ul></li>
+<li><a href="#important-notes" id="toc-important-notes">Important
+Notes</a></li>
+<li><a href="#reporting-bugs" id="toc-reporting-bugs">Reporting
+Bugs</a></li>
+</ul></li>
+</ul>
+</div>
+
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>The <code>jpinfect</code> package provides tools for acquiring and
+processing notifiable infectious disease data in Japan. The package
+includes built-in datasets and functions to download, read and
+manipulate data from the Japan Institute for Health Security (JIHS). It
+also provides functions to merge datasets, transform data formats and
+check data sources.</p>
+<p>This package is designed to assist researchers, epidemiologists,
+public health officials and developers in accessing, cleaning, and
+manipulating data for epidemiological analysis. The package is
+particularly useful for those working with infectious disease data in
+Japan, as it provides a streamlined process for obtaining and processing
+data from the JIHS.</p>
+<div id="dependencies" class="section level3">
+<h3>Dependencies</h3>
+<p>The <code>jpinfect</code> package depends on the following R
+packages:</p>
+<ul>
+<li><p><code>dplyr</code>: for data manipulation</p></li>
+<li><p><code>future</code>: for parallel processing</p></li>
+<li><p><code>future.apply</code>: for parallel processing</p></li>
+<li><p><code>httr</code>: for HTTP requests</p></li>
+<li><p><code>magrittr</code>: for piping</p></li>
+<li><p><code>readr</code>: for reading CSV files</p></li>
+<li><p><code>readxl</code>: for reading Excel files</p></li>
+<li><p><code>stats</code>: for statistical functions</p></li>
+<li><p><code>stringi</code>: for string manipulation</p></li>
+<li><p><code>stringr</code>: for string manipulation</p></li>
+<li><p><code>tidyr</code>: for data tidying</p></li>
+<li><p><code>tidyselect</code>: for data selection</p></li>
+<li><p><code>utils</code>: for utility functions</p></li>
+</ul>
+</div>
+<div id="installation" class="section level2">
+<h2>Installation</h2>
+<p>The <code>jpinfect</code> package can be installed from GitHub using
+the <a href="https://github.com/r-lib/remotes">remotes</a> package. To
+install the package, run the following command in your R console:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="co"># install.packages(&quot;jpinfect&quot;)</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;remotes&quot;</span>)) <span class="fu">install.packages</span>(<span class="st">&quot;remotes&quot;</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;TomonoriHoshi/jpinfect&quot;</span>)</span></code></pre></div>
+<p>Load the package after installation:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">library</span>(jpinfect)</span></code></pre></div>
+</div>
+<div id="usage" class="section level2">
+<h2>Usage</h2>
+<div id="built-in-datasets" class="section level3">
+<h3>Built-in Datasets</h3>
+<p>The <code>jpinfect</code> package includes three built-in datasets
+that can be used to start immediate data analysis. These datasets
+are:</p>
+<ul>
+<li><p><code>sex_prefecture</code>: Confirmed weekly case reports on the
+sex distribution of reported cases by prefecture from 1999 to
+2022.</p></li>
+<li><p><code>place_prefecture</code>: Confirmed weekly case reports
+about the place of infection by prefecture between 2001 and
+2022.</p></li>
+<li><p><code>bullet</code>: Provisional weekly case reported by
+prefecture from 2022 to the current latest reports.</p></li>
+</ul>
+<p>These datasets are provided in a tidy format, making them easy to
+work with using the <code>dplyr</code> and <code>tidyr</code>
+packages.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;sex_prefecture&quot;</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;place_prefecture&quot;</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;bullet&quot;</span>)</span></code></pre></div>
+<div id="data-exploration" class="section level4">
+<h4>Data Exploration</h4>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">str</span>(sex_prefecture)</span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="co">#&gt; tibble [61,920 × 319] (S3: tbl_df/tbl/data.frame)</span></span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="co">#&gt;  $ prefecture                                                      : chr [1:61920] &quot;Total&quot; &quot;Hokkaido&quot; &quot;Aomori&quot; &quot;Iwate&quot; ...</span></span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="co">#&gt;  $ year                                                            : int [1:61920] 1999 1999 1999 1999 1999 1999 1999 1999 1999 1999 ...</span></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="co">#&gt;  $ week                                                            : int [1:61920] 14 14 14 14 14 14 14 14 14 14 ...</span></span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a><span class="co">#&gt;  $ date                                                            : Date[1:61920], format: &quot;1999-04-11&quot; &quot;1999-04-11&quot; ...</span></span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a><span class="co">#&gt;  $ Ebola hemorrhagic fever (total)                                 : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a><span class="co">#&gt;  $ Ebola hemorrhagic fever (male)                                  : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a><span class="co">#&gt;  $ Ebola hemorrhagic fever (female)                                : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a><span class="co">#&gt;  $ Crimean-Congo hemorrhagic fever (total)                         : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a><span class="co">#&gt;  $ Crimean-Congo hemorrhagic fever (male)                          : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a><span class="co">#&gt;  $ Crimean-Congo hemorrhagic fever (female)                        : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a><span class="co">#&gt;  $ Plague (total)                                                  : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-14"><a href="#cb4-14" tabindex="-1"></a><span class="co">#&gt;  $ Plague (male)                                                   : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-15"><a href="#cb4-15" tabindex="-1"></a><span class="co">#&gt;  $ Plague (female)                                                 : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-16"><a href="#cb4-16" tabindex="-1"></a><span class="co">#&gt;  $ Marburg disease (total)                                         : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-17"><a href="#cb4-17" tabindex="-1"></a><span class="co">#&gt;  $ Marburg disease (male)                                          : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-18"><a href="#cb4-18" tabindex="-1"></a><span class="co">#&gt;  $ Marburg disease (female)                                        : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-19"><a href="#cb4-19" tabindex="-1"></a><span class="co">#&gt;  $ Lassa fever (total)                                             : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-20"><a href="#cb4-20" tabindex="-1"></a><span class="co">#&gt;  $ Lassa fever (male)                                              : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-21"><a href="#cb4-21" tabindex="-1"></a><span class="co">#&gt;  $ Lassa fever (female)                                            : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-22"><a href="#cb4-22" tabindex="-1"></a><span class="co">#&gt;  $ Cholera (total)                                                 : int [1:61920] 2 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-23"><a href="#cb4-23" tabindex="-1"></a><span class="co">#&gt;  $ Cholera (male)                                                  : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-24"><a href="#cb4-24" tabindex="-1"></a><span class="co">#&gt;  $ Cholera (female)                                                : int [1:61920] 2 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-25"><a href="#cb4-25" tabindex="-1"></a><span class="co">#&gt;  $ Shigellosis (total)                                             : int [1:61920] 21 1 0 0 0 0 0 1 0 0 ...</span></span>
+<span id="cb4-26"><a href="#cb4-26" tabindex="-1"></a><span class="co">#&gt;  $ Shigellosis (male)                                              : int [1:61920] 9 1 0 0 0 0 0 1 0 0 ...</span></span>
+<span id="cb4-27"><a href="#cb4-27" tabindex="-1"></a><span class="co">#&gt;  $ Shigellosis (female)                                            : int [1:61920] 12 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-28"><a href="#cb4-28" tabindex="-1"></a><span class="co">#&gt;  $ Typhoid fever (total)                                           : int [1:61920] 1 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-29"><a href="#cb4-29" tabindex="-1"></a><span class="co">#&gt;  $ Typhoid fever (male)                                            : int [1:61920] 1 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-30"><a href="#cb4-30" tabindex="-1"></a><span class="co">#&gt;  $ Typhoid fever (female)                                          : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-31"><a href="#cb4-31" tabindex="-1"></a><span class="co">#&gt;  $ Paratyphoid fever (total)                                       : int [1:61920] 5 1 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-32"><a href="#cb4-32" tabindex="-1"></a><span class="co">#&gt;  $ Paratyphoid fever (male)                                        : int [1:61920] 1 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-33"><a href="#cb4-33" tabindex="-1"></a><span class="co">#&gt;  $ Paratyphoid fever (female)                                      : int [1:61920] 4 1 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-34"><a href="#cb4-34" tabindex="-1"></a><span class="co">#&gt;  $ Acute poliomyelitis (total)                                     : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-35"><a href="#cb4-35" tabindex="-1"></a><span class="co">#&gt;  $ Acute poliomyelitis (male)                                      : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-36"><a href="#cb4-36" tabindex="-1"></a><span class="co">#&gt;  $ Acute poliomyelitis (female)                                    : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-37"><a href="#cb4-37" tabindex="-1"></a><span class="co">#&gt;  $ Diphtheria (total)                                              : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-38"><a href="#cb4-38" tabindex="-1"></a><span class="co">#&gt;  $ Diphtheria (male)                                               : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-39"><a href="#cb4-39" tabindex="-1"></a><span class="co">#&gt;  $ Diphtheria (female)                                             : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-40"><a href="#cb4-40" tabindex="-1"></a><span class="co">#&gt;  $ Enterohemorrhagic E. coli infection (total)                     : int [1:61920] 20 0 0 2 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-41"><a href="#cb4-41" tabindex="-1"></a><span class="co">#&gt;  $ Enterohemorrhagic E. coli infection (male)                      : int [1:61920] 12 0 0 2 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-42"><a href="#cb4-42" tabindex="-1"></a><span class="co">#&gt;  $ Enterohemorrhagic E. coli infection (female)                    : int [1:61920] 8 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-43"><a href="#cb4-43" tabindex="-1"></a><span class="co">#&gt;  $ Amebiasis (total)                                               : int [1:61920] 9 1 0 0 0 0 0 0 1 0 ...</span></span>
+<span id="cb4-44"><a href="#cb4-44" tabindex="-1"></a><span class="co">#&gt;  $ Amebiasis (male)                                                : int [1:61920] 9 1 0 0 0 0 0 0 1 0 ...</span></span>
+<span id="cb4-45"><a href="#cb4-45" tabindex="-1"></a><span class="co">#&gt;  $ Amebiasis (female)                                              : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-46"><a href="#cb4-46" tabindex="-1"></a><span class="co">#&gt;  $ Echinococcosis (total)                                          : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-47"><a href="#cb4-47" tabindex="-1"></a><span class="co">#&gt;  $ Echinococcosis (male)                                           : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-48"><a href="#cb4-48" tabindex="-1"></a><span class="co">#&gt;  $ Echinococcosis (female)                                         : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-49"><a href="#cb4-49" tabindex="-1"></a><span class="co">#&gt;  $ Yellow fever (total)                                            : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-50"><a href="#cb4-50" tabindex="-1"></a><span class="co">#&gt;  $ Yellow fever (male)                                             : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-51"><a href="#cb4-51" tabindex="-1"></a><span class="co">#&gt;  $ Yellow fever (female)                                           : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-52"><a href="#cb4-52" tabindex="-1"></a><span class="co">#&gt;  $ Psittacosis (total)                                             : int [1:61920] 1 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-53"><a href="#cb4-53" tabindex="-1"></a><span class="co">#&gt;  $ Psittacosis (male)                                              : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-54"><a href="#cb4-54" tabindex="-1"></a><span class="co">#&gt;  $ Psittacosis (female)                                            : int [1:61920] 1 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-55"><a href="#cb4-55" tabindex="-1"></a><span class="co">#&gt;  $ Relapsing fever (total)                                         : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-56"><a href="#cb4-56" tabindex="-1"></a><span class="co">#&gt;  $ Relapsing fever (male)                                          : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-57"><a href="#cb4-57" tabindex="-1"></a><span class="co">#&gt;  $ Relapsing fever (female)                                        : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-58"><a href="#cb4-58" tabindex="-1"></a><span class="co">#&gt;  $ Acute viral hepatitis (total)                                   : int [1:61920] 52 1 0 1 2 0 0 0 2 0 ...</span></span>
+<span id="cb4-59"><a href="#cb4-59" tabindex="-1"></a><span class="co">#&gt;  $ Acute viral hepatitis (male)                                    : int [1:61920] 28 1 0 1 1 0 0 0 1 0 ...</span></span>
+<span id="cb4-60"><a href="#cb4-60" tabindex="-1"></a><span class="co">#&gt;  $ Acute viral hepatitis (female)                                  : int [1:61920] 24 0 0 0 1 0 0 0 1 0 ...</span></span>
+<span id="cb4-61"><a href="#cb4-61" tabindex="-1"></a><span class="co">#&gt;  $ Q fever (total)                                                 : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-62"><a href="#cb4-62" tabindex="-1"></a><span class="co">#&gt;  $ Q fever (male)                                                  : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-63"><a href="#cb4-63" tabindex="-1"></a><span class="co">#&gt;  $ Q fever (female)                                                : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-64"><a href="#cb4-64" tabindex="-1"></a><span class="co">#&gt;  $ Rabies (total)                                                  : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-65"><a href="#cb4-65" tabindex="-1"></a><span class="co">#&gt;  $ Rabies (male)                                                   : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-66"><a href="#cb4-66" tabindex="-1"></a><span class="co">#&gt;  $ Rabies (female)                                                 : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-67"><a href="#cb4-67" tabindex="-1"></a><span class="co">#&gt;  $ Cryptosporidiosis (total)                                       : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-68"><a href="#cb4-68" tabindex="-1"></a><span class="co">#&gt;  $ Cryptosporidiosis (male)                                        : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-69"><a href="#cb4-69" tabindex="-1"></a><span class="co">#&gt;  $ Cryptosporidiosis (female)                                      : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-70"><a href="#cb4-70" tabindex="-1"></a><span class="co">#&gt;  $ Creutzfeldt-Jakob disease (total)                               : int [1:61920] 2 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-71"><a href="#cb4-71" tabindex="-1"></a><span class="co">#&gt;  $ Creutzfeldt-Jakob disease (male)                                : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-72"><a href="#cb4-72" tabindex="-1"></a><span class="co">#&gt;  $ Creutzfeldt-Jakob disease (female)                              : int [1:61920] 2 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-73"><a href="#cb4-73" tabindex="-1"></a><span class="co">#&gt;  $ Severe invasive streptococcal infections (total)                : int [1:61920] 1 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-74"><a href="#cb4-74" tabindex="-1"></a><span class="co">#&gt;  $ Severe invasive streptococcal infections (male)                 : int [1:61920] 1 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-75"><a href="#cb4-75" tabindex="-1"></a><span class="co">#&gt;  $ Severe invasive streptococcal infections (female)               : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-76"><a href="#cb4-76" tabindex="-1"></a><span class="co">#&gt;  $ AIDS (total)                                                    : int [1:61920] 18 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-77"><a href="#cb4-77" tabindex="-1"></a><span class="co">#&gt;  $ AIDS (male)                                                     : int [1:61920] 15 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-78"><a href="#cb4-78" tabindex="-1"></a><span class="co">#&gt;  $ AIDS (female)                                                   : int [1:61920] 3 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-79"><a href="#cb4-79" tabindex="-1"></a><span class="co">#&gt;  $ Coccidioidomycosis (total)                                      : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-80"><a href="#cb4-80" tabindex="-1"></a><span class="co">#&gt;  $ Coccidioidomycosis (male)                                       : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-81"><a href="#cb4-81" tabindex="-1"></a><span class="co">#&gt;  $ Coccidioidomycosis (female)                                     : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-82"><a href="#cb4-82" tabindex="-1"></a><span class="co">#&gt;  $ Giardiasis (total)                                              : int [1:61920] 2 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-83"><a href="#cb4-83" tabindex="-1"></a><span class="co">#&gt;  $ Giardiasis (male)                                               : int [1:61920] 1 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-84"><a href="#cb4-84" tabindex="-1"></a><span class="co">#&gt;  $ Giardiasis (female)                                             : int [1:61920] 1 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-85"><a href="#cb4-85" tabindex="-1"></a><span class="co">#&gt;  $ Hemorrhagic fever with renal syndrome (total)                   : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-86"><a href="#cb4-86" tabindex="-1"></a><span class="co">#&gt;  $ Hemorrhagic fever with renal syndrome (male)                    : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-87"><a href="#cb4-87" tabindex="-1"></a><span class="co">#&gt;  $ Hemorrhagic fever with renal syndrome (female)                  : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-88"><a href="#cb4-88" tabindex="-1"></a><span class="co">#&gt;  $ Meningococcal meningitis (total)                                : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-89"><a href="#cb4-89" tabindex="-1"></a><span class="co">#&gt;  $ Meningococcal meningitis (male)                                 : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-90"><a href="#cb4-90" tabindex="-1"></a><span class="co">#&gt;  $ Meningococcal meningitis (female)                               : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-91"><a href="#cb4-91" tabindex="-1"></a><span class="co">#&gt;  $ Congenital rubella syndrome (total)                             : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-92"><a href="#cb4-92" tabindex="-1"></a><span class="co">#&gt;  $ Congenital rubella syndrome (male)                              : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-93"><a href="#cb4-93" tabindex="-1"></a><span class="co">#&gt;  $ Congenital rubella syndrome (female)                            : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-94"><a href="#cb4-94" tabindex="-1"></a><span class="co">#&gt;  $ Anthrax (total)                                                 : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-95"><a href="#cb4-95" tabindex="-1"></a><span class="co">#&gt;  $ Anthrax (male)                                                  : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-96"><a href="#cb4-96" tabindex="-1"></a><span class="co">#&gt;  $ Anthrax (female)                                                : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-97"><a href="#cb4-97" tabindex="-1"></a><span class="co">#&gt;  $ Tsutsugamushi disease (total)                                   : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-98"><a href="#cb4-98" tabindex="-1"></a><span class="co">#&gt;  $ Tsutsugamushi disease (male)                                    : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-99"><a href="#cb4-99" tabindex="-1"></a><span class="co">#&gt;  $ Tsutsugamushi disease (female)                                  : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-100"><a href="#cb4-100" tabindex="-1"></a><span class="co">#&gt;  $ Dengue fever (total)                                            : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-101"><a href="#cb4-101" tabindex="-1"></a><span class="co">#&gt;  $ Dengue fever (male)                                             : int [1:61920] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb4-102"><a href="#cb4-102" tabindex="-1"></a><span class="co">#&gt;   [list output truncated]</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">str</span>(place_prefecture)</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="co">#&gt; tibble [57,552 × 420] (S3: tbl_df/tbl/data.frame)</span></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="co">#&gt;  $ prefecture                                                            : chr [1:57552] &quot;Total&quot; &quot;Hokkaido&quot; &quot;Aomori&quot; &quot;Iwate&quot; ...</span></span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="co">#&gt;  $ year                                                                  : int [1:57552] 2001 2001 2001 2001 2001 2001 2001 2001 2001 2001 ...</span></span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a><span class="co">#&gt;  $ week                                                                  : int [1:57552] 1 1 1 1 1 1 1 1 1 1 ...</span></span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a><span class="co">#&gt;  $ date                                                                  : Date[1:57552], format: &quot;2001-01-07&quot; &quot;2001-01-07&quot; ...</span></span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a><span class="co">#&gt;  $ Ebola hemorrhagic fever (total)                                       : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a><span class="co">#&gt;  $ Ebola hemorrhagic fever (Inside Japan)                                : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a><span class="co">#&gt;  $ Ebola hemorrhagic fever (Others)                                      : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a><span class="co">#&gt;  $ Ebola hemorrhagic fever (Unknown)                                     : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a><span class="co">#&gt;  $ Crimean-Congo hemorrhagic fever (total)                               : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a><span class="co">#&gt;  $ Crimean-Congo hemorrhagic fever (Inside Japan)                        : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-13"><a href="#cb5-13" tabindex="-1"></a><span class="co">#&gt;  $ Crimean-Congo hemorrhagic fever (Others)                              : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-14"><a href="#cb5-14" tabindex="-1"></a><span class="co">#&gt;  $ Crimean-Congo hemorrhagic fever (Unknown)                             : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-15"><a href="#cb5-15" tabindex="-1"></a><span class="co">#&gt;  $ Plague (total)                                                        : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-16"><a href="#cb5-16" tabindex="-1"></a><span class="co">#&gt;  $ Plague (Inside Japan)                                                 : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-17"><a href="#cb5-17" tabindex="-1"></a><span class="co">#&gt;  $ Plague (Others)                                                       : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-18"><a href="#cb5-18" tabindex="-1"></a><span class="co">#&gt;  $ Plague (Unknown)                                                      : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-19"><a href="#cb5-19" tabindex="-1"></a><span class="co">#&gt;  $ Marburg disease (total)                                               : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-20"><a href="#cb5-20" tabindex="-1"></a><span class="co">#&gt;  $ Marburg disease (Inside Japan)                                        : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-21"><a href="#cb5-21" tabindex="-1"></a><span class="co">#&gt;  $ Marburg disease (Others)                                              : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-22"><a href="#cb5-22" tabindex="-1"></a><span class="co">#&gt;  $ Marburg disease (Unknown)                                             : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-23"><a href="#cb5-23" tabindex="-1"></a><span class="co">#&gt;  $ Lassa fever (total)                                                   : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-24"><a href="#cb5-24" tabindex="-1"></a><span class="co">#&gt;  $ Lassa fever (Inside Japan)                                            : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-25"><a href="#cb5-25" tabindex="-1"></a><span class="co">#&gt;  $ Lassa fever (Others)                                                  : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-26"><a href="#cb5-26" tabindex="-1"></a><span class="co">#&gt;  $ Lassa fever (Unknown)                                                 : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-27"><a href="#cb5-27" tabindex="-1"></a><span class="co">#&gt;  $ Cholera (total)                                                       : int [1:57552] 2 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-28"><a href="#cb5-28" tabindex="-1"></a><span class="co">#&gt;  $ Cholera (Inside Japan)                                                : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-29"><a href="#cb5-29" tabindex="-1"></a><span class="co">#&gt;  $ Cholera (Others)                                                      : int [1:57552] 2 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-30"><a href="#cb5-30" tabindex="-1"></a><span class="co">#&gt;  $ Cholera (Unknown)                                                     : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-31"><a href="#cb5-31" tabindex="-1"></a><span class="co">#&gt;  $ Shigellosis (total)                                                   : int [1:57552] 6 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-32"><a href="#cb5-32" tabindex="-1"></a><span class="co">#&gt;  $ Shigellosis (Inside Japan)                                            : int [1:57552] 1 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-33"><a href="#cb5-33" tabindex="-1"></a><span class="co">#&gt;  $ Shigellosis (Others)                                                  : int [1:57552] 5 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-34"><a href="#cb5-34" tabindex="-1"></a><span class="co">#&gt;  $ Shigellosis (Unknown)                                                 : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-35"><a href="#cb5-35" tabindex="-1"></a><span class="co">#&gt;  $ Typhoid fever (total)                                                 : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-36"><a href="#cb5-36" tabindex="-1"></a><span class="co">#&gt;  $ Typhoid fever (Inside Japan)                                          : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-37"><a href="#cb5-37" tabindex="-1"></a><span class="co">#&gt;  $ Typhoid fever (Others)                                                : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-38"><a href="#cb5-38" tabindex="-1"></a><span class="co">#&gt;  $ Typhoid fever (Unknown)                                               : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-39"><a href="#cb5-39" tabindex="-1"></a><span class="co">#&gt;  $ Paratyphoid fever (total)                                             : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-40"><a href="#cb5-40" tabindex="-1"></a><span class="co">#&gt;  $ Paratyphoid fever (Inside Japan)                                      : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-41"><a href="#cb5-41" tabindex="-1"></a><span class="co">#&gt;  $ Paratyphoid fever (Others)                                            : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-42"><a href="#cb5-42" tabindex="-1"></a><span class="co">#&gt;  $ Paratyphoid fever (Unknown)                                           : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-43"><a href="#cb5-43" tabindex="-1"></a><span class="co">#&gt;  $ Poliomyelitis (total)                                                 : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-44"><a href="#cb5-44" tabindex="-1"></a><span class="co">#&gt;  $ Poliomyelitis (Inside Japan)                                          : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-45"><a href="#cb5-45" tabindex="-1"></a><span class="co">#&gt;  $ Poliomyelitis (Others)                                                : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-46"><a href="#cb5-46" tabindex="-1"></a><span class="co">#&gt;  $ Poliomyelitis (Unknown)                                               : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-47"><a href="#cb5-47" tabindex="-1"></a><span class="co">#&gt;  $ Diphtheria (total)                                                    : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-48"><a href="#cb5-48" tabindex="-1"></a><span class="co">#&gt;  $ Diphtheria (Inside Japan)                                             : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-49"><a href="#cb5-49" tabindex="-1"></a><span class="co">#&gt;  $ Diphtheria (Others)                                                   : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-50"><a href="#cb5-50" tabindex="-1"></a><span class="co">#&gt;  $ Diphtheria (Unknown)                                                  : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-51"><a href="#cb5-51" tabindex="-1"></a><span class="co">#&gt;  $ Enterohemorrhagic E. coli infection (total)                           : int [1:57552] 12 0 1 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-52"><a href="#cb5-52" tabindex="-1"></a><span class="co">#&gt;  $ Enterohemorrhagic E. coli infection (Inside Japan)                    : int [1:57552] 10 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-53"><a href="#cb5-53" tabindex="-1"></a><span class="co">#&gt;  $ Enterohemorrhagic E. coli infection (Others)                          : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-54"><a href="#cb5-54" tabindex="-1"></a><span class="co">#&gt;  $ Enterohemorrhagic E. coli infection (Unknown)                         : int [1:57552] 2 0 1 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-55"><a href="#cb5-55" tabindex="-1"></a><span class="co">#&gt;  $ Amebiasis (total)                                                     : int [1:57552] 3 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-56"><a href="#cb5-56" tabindex="-1"></a><span class="co">#&gt;  $ Amebiasis (Inside Japan)                                              : int [1:57552] 2 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-57"><a href="#cb5-57" tabindex="-1"></a><span class="co">#&gt;  $ Amebiasis (Others)                                                    : int [1:57552] 1 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-58"><a href="#cb5-58" tabindex="-1"></a><span class="co">#&gt;  $ Amebiasis (Unknown)                                                   : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-59"><a href="#cb5-59" tabindex="-1"></a><span class="co">#&gt;  $ Echinococcosis (total)                                                : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-60"><a href="#cb5-60" tabindex="-1"></a><span class="co">#&gt;  $ Echinococcosis (Inside Japan)                                         : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-61"><a href="#cb5-61" tabindex="-1"></a><span class="co">#&gt;  $ Echinococcosis (Others)                                               : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-62"><a href="#cb5-62" tabindex="-1"></a><span class="co">#&gt;  $ Echinococcosis (Unknown)                                              : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-63"><a href="#cb5-63" tabindex="-1"></a><span class="co">#&gt;  $ Yellow fever (total)                                                  : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-64"><a href="#cb5-64" tabindex="-1"></a><span class="co">#&gt;  $ Yellow fever (Inside Japan)                                           : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-65"><a href="#cb5-65" tabindex="-1"></a><span class="co">#&gt;  $ Yellow fever (Others)                                                 : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-66"><a href="#cb5-66" tabindex="-1"></a><span class="co">#&gt;  $ Yellow fever (Unknown)                                                : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-67"><a href="#cb5-67" tabindex="-1"></a><span class="co">#&gt;  $ Psittacosis (total)                                                   : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-68"><a href="#cb5-68" tabindex="-1"></a><span class="co">#&gt;  $ Psittacosis (Inside Japan)                                            : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-69"><a href="#cb5-69" tabindex="-1"></a><span class="co">#&gt;  $ Psittacosis (Others)                                                  : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-70"><a href="#cb5-70" tabindex="-1"></a><span class="co">#&gt;  $ Psittacosis (Unknown)                                                 : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-71"><a href="#cb5-71" tabindex="-1"></a><span class="co">#&gt;  $ Relapsing fever (total)                                               : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-72"><a href="#cb5-72" tabindex="-1"></a><span class="co">#&gt;  $ Relapsing fever (Inside Japan)                                        : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-73"><a href="#cb5-73" tabindex="-1"></a><span class="co">#&gt;  $ Relapsing fever (Others)                                              : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-74"><a href="#cb5-74" tabindex="-1"></a><span class="co">#&gt;  $ Relapsing fever (Unknown)                                             : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-75"><a href="#cb5-75" tabindex="-1"></a><span class="co">#&gt;  $ Acute viral hepatitis (total)                                         : int [1:57552] 1 0 0 0 1 0 0 0 0 0 ...</span></span>
+<span id="cb5-76"><a href="#cb5-76" tabindex="-1"></a><span class="co">#&gt;  $ Acute viral hepatitis (Inside Japan)                                  : int [1:57552] 1 0 0 0 1 0 0 0 0 0 ...</span></span>
+<span id="cb5-77"><a href="#cb5-77" tabindex="-1"></a><span class="co">#&gt;  $ Acute viral hepatitis (Others)                                        : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-78"><a href="#cb5-78" tabindex="-1"></a><span class="co">#&gt;  $ Acute viral hepatitis (Unknown)                                       : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-79"><a href="#cb5-79" tabindex="-1"></a><span class="co">#&gt;  $ Q fever (total)                                                       : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-80"><a href="#cb5-80" tabindex="-1"></a><span class="co">#&gt;  $ Q fever (Inside Japan)                                                : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-81"><a href="#cb5-81" tabindex="-1"></a><span class="co">#&gt;  $ Q fever (Others)                                                      : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-82"><a href="#cb5-82" tabindex="-1"></a><span class="co">#&gt;  $ Q fever (Unknown)                                                     : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-83"><a href="#cb5-83" tabindex="-1"></a><span class="co">#&gt;  $ Rabies (total)                                                        : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-84"><a href="#cb5-84" tabindex="-1"></a><span class="co">#&gt;  $ Rabies (Inside Japan)                                                 : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-85"><a href="#cb5-85" tabindex="-1"></a><span class="co">#&gt;  $ Rabies (Others)                                                       : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-86"><a href="#cb5-86" tabindex="-1"></a><span class="co">#&gt;  $ Rabies (Unknown)                                                      : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-87"><a href="#cb5-87" tabindex="-1"></a><span class="co">#&gt;  $ Cryptosporidiosis (total)                                             : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-88"><a href="#cb5-88" tabindex="-1"></a><span class="co">#&gt;  $ Cryptosporidiosis (Inside Japan)                                      : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-89"><a href="#cb5-89" tabindex="-1"></a><span class="co">#&gt;  $ Cryptosporidiosis (Others)                                            : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-90"><a href="#cb5-90" tabindex="-1"></a><span class="co">#&gt;  $ Cryptosporidiosis (Unknown)                                           : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-91"><a href="#cb5-91" tabindex="-1"></a><span class="co">#&gt;  $ Creutzfeldt-Jakob disease (total)                                     : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-92"><a href="#cb5-92" tabindex="-1"></a><span class="co">#&gt;  $ Creutzfeldt-Jakob disease (Inside Japan)                              : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-93"><a href="#cb5-93" tabindex="-1"></a><span class="co">#&gt;  $ Creutzfeldt-Jakob disease (Others)                                    : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-94"><a href="#cb5-94" tabindex="-1"></a><span class="co">#&gt;  $ Creutzfeldt-Jakob disease (Unknown)                                   : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-95"><a href="#cb5-95" tabindex="-1"></a><span class="co">#&gt;  $ Severe invasive streptococcal infections (total)                      : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-96"><a href="#cb5-96" tabindex="-1"></a><span class="co">#&gt;  $ Severe invasive streptococcal infections (Inside Japan)               : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-97"><a href="#cb5-97" tabindex="-1"></a><span class="co">#&gt;  $ Severe invasive streptococcal infections (Others)                     : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-98"><a href="#cb5-98" tabindex="-1"></a><span class="co">#&gt;  $ Severe invasive streptococcal infections (Unknown)                    : int [1:57552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-99"><a href="#cb5-99" tabindex="-1"></a><span class="co">#&gt;  $ AIDS (total)                                                          : int [1:57552] 9 0 0 0 0 0 0 0 1 0 ...</span></span>
+<span id="cb5-100"><a href="#cb5-100" tabindex="-1"></a><span class="co">#&gt;  $ AIDS (Inside Japan)                                                   : int [1:57552] 7 0 0 0 0 0 0 0 1 0 ...</span></span>
+<span id="cb5-101"><a href="#cb5-101" tabindex="-1"></a><span class="co">#&gt;  $ AIDS (Others)                                                         : int [1:57552] 1 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb5-102"><a href="#cb5-102" tabindex="-1"></a><span class="co">#&gt;   [list output truncated]</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="fu">str</span>(bullet)</span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="co">#&gt; tibble [3,408 × 178] (S3: tbl_df/tbl/data.frame)</span></span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="co">#&gt;  $ prefecture                                                               : chr [1:3408] &quot;Total&quot; &quot;Hokkaido&quot; &quot;Aomori&quot; &quot;Iwate&quot; ...</span></span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a><span class="co">#&gt;  $ year                                                                     : int [1:3408] 2024 2024 2024 2024 2024 2024 2024 2024 2024 2024 ...</span></span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a><span class="co">#&gt;  $ week                                                                     : int [1:3408] 1 1 1 1 1 1 1 1 1 1 ...</span></span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a><span class="co">#&gt;  $ date                                                                     : Date[1:3408], format: &quot;2024-01-01&quot; &quot;2024-01-01&quot; ...</span></span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a><span class="co">#&gt;  $ Ebola hemorrhagic fever (weekly)                                         : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a><span class="co">#&gt;  $ Ebola hemorrhagic fever (cumulative)                                     : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a><span class="co">#&gt;  $ Crimean-Congo hemorrhagic fever (weekly)                                 : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a><span class="co">#&gt;  $ Crimean-Congo hemorrhagic fever (cumulative)                             : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-11"><a href="#cb6-11" tabindex="-1"></a><span class="co">#&gt;  $ Smallpox (weekly)                                                        : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-12"><a href="#cb6-12" tabindex="-1"></a><span class="co">#&gt;  $ Smallpox (cumulative)                                                    : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-13"><a href="#cb6-13" tabindex="-1"></a><span class="co">#&gt;  $ South American hemorrhagic fever (weekly)                                : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-14"><a href="#cb6-14" tabindex="-1"></a><span class="co">#&gt;  $ South American hemorrhagic fever (cumulative)                            : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-15"><a href="#cb6-15" tabindex="-1"></a><span class="co">#&gt;  $ Plague (weekly)                                                          : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-16"><a href="#cb6-16" tabindex="-1"></a><span class="co">#&gt;  $ Plague (cumulative)                                                      : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-17"><a href="#cb6-17" tabindex="-1"></a><span class="co">#&gt;  $ Marburg disease (weekly)                                                 : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-18"><a href="#cb6-18" tabindex="-1"></a><span class="co">#&gt;  $ Marburg disease (cumulative)                                             : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-19"><a href="#cb6-19" tabindex="-1"></a><span class="co">#&gt;  $ Lassa fever (weekly)                                                     : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-20"><a href="#cb6-20" tabindex="-1"></a><span class="co">#&gt;  $ Lassa fever (cumulative)                                                 : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-21"><a href="#cb6-21" tabindex="-1"></a><span class="co">#&gt;  $ Acute poliomyelitis (weekly)                                             : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-22"><a href="#cb6-22" tabindex="-1"></a><span class="co">#&gt;  $ Acute poliomyelitis (cumulative)                                         : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-23"><a href="#cb6-23" tabindex="-1"></a><span class="co">#&gt;  $ Tuberculosis (weekly)                                                    : int [1:3408] 78 2 0 0 6 1 1 0 4 1 ...</span></span>
+<span id="cb6-24"><a href="#cb6-24" tabindex="-1"></a><span class="co">#&gt;  $ Tuberculosis (cumulative)                                                : int [1:3408] 78 2 0 0 6 1 1 0 4 1 ...</span></span>
+<span id="cb6-25"><a href="#cb6-25" tabindex="-1"></a><span class="co">#&gt;  $ Diphtheria (weekly)                                                      : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-26"><a href="#cb6-26" tabindex="-1"></a><span class="co">#&gt;  $ Diphtheria (cumulative)                                                  : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-27"><a href="#cb6-27" tabindex="-1"></a><span class="co">#&gt;  $ Severe Acute Respiratory Syndrome (SARS) (weekly)                        : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-28"><a href="#cb6-28" tabindex="-1"></a><span class="co">#&gt;  $ Severe Acute Respiratory Syndrome (SARS) (cumulative)                    : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-29"><a href="#cb6-29" tabindex="-1"></a><span class="co">#&gt;  $ Middle East Respiratory Syndrome Coronavirus (weekly)                    : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-30"><a href="#cb6-30" tabindex="-1"></a><span class="co">#&gt;  $ Middle East Respiratory Syndrome Coronavirus (cumulative)                : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-31"><a href="#cb6-31" tabindex="-1"></a><span class="co">#&gt;  $ Avian influenza H5N1 (weekly)                                            : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-32"><a href="#cb6-32" tabindex="-1"></a><span class="co">#&gt;  $ Avian influenza H5N1 (cumulative)                                        : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-33"><a href="#cb6-33" tabindex="-1"></a><span class="co">#&gt;  $ Avian influenza H7N9 (weekly)                                            : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-34"><a href="#cb6-34" tabindex="-1"></a><span class="co">#&gt;  $ Avian influenza H7N9 (cumulative)                                        : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-35"><a href="#cb6-35" tabindex="-1"></a><span class="co">#&gt;  $ Cholera (weekly)                                                         : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-36"><a href="#cb6-36" tabindex="-1"></a><span class="co">#&gt;  $ Cholera (cumulative)                                                     : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-37"><a href="#cb6-37" tabindex="-1"></a><span class="co">#&gt;  $ Shigellosis (weekly)                                                     : int [1:3408] 2 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-38"><a href="#cb6-38" tabindex="-1"></a><span class="co">#&gt;  $ Shigellosis (cumulative)                                                 : int [1:3408] 2 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-39"><a href="#cb6-39" tabindex="-1"></a><span class="co">#&gt;  $ Enterohemorrhagic Escherichia coli infection (weekly)                    : int [1:3408] 9 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-40"><a href="#cb6-40" tabindex="-1"></a><span class="co">#&gt;  $ Enterohemorrhagic Escherichia coli infection (cumulative)                : int [1:3408] 9 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-41"><a href="#cb6-41" tabindex="-1"></a><span class="co">#&gt;  $ Typhoid fever (weekly)                                                   : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-42"><a href="#cb6-42" tabindex="-1"></a><span class="co">#&gt;  $ Typhoid fever (cumulative)                                               : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-43"><a href="#cb6-43" tabindex="-1"></a><span class="co">#&gt;  $ Paratyphoid fever (weekly)                                               : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-44"><a href="#cb6-44" tabindex="-1"></a><span class="co">#&gt;  $ Paratyphoid fever (cumulative)                                           : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-45"><a href="#cb6-45" tabindex="-1"></a><span class="co">#&gt;  $ Hepatitis E (weekly)                                                     : int [1:3408] 6 0 0 0 1 0 0 0 0 0 ...</span></span>
+<span id="cb6-46"><a href="#cb6-46" tabindex="-1"></a><span class="co">#&gt;  $ Hepatitis E (cumulative)                                                 : int [1:3408] 6 0 0 0 1 0 0 0 0 0 ...</span></span>
+<span id="cb6-47"><a href="#cb6-47" tabindex="-1"></a><span class="co">#&gt;  $ West Nile fever (weekly)                                                 : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-48"><a href="#cb6-48" tabindex="-1"></a><span class="co">#&gt;  $ West Nile fever (cumulative)                                             : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-49"><a href="#cb6-49" tabindex="-1"></a><span class="co">#&gt;  $ Hepatitis A (weekly)                                                     : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-50"><a href="#cb6-50" tabindex="-1"></a><span class="co">#&gt;  $ Hepatitis A (cumulative)                                                 : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-51"><a href="#cb6-51" tabindex="-1"></a><span class="co">#&gt;  $ Echinococcosis (weekly)                                                  : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-52"><a href="#cb6-52" tabindex="-1"></a><span class="co">#&gt;  $ Echinococcosis (cumulative)                                              : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-53"><a href="#cb6-53" tabindex="-1"></a><span class="co">#&gt;  $ Mpox (weekly)                                                            : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-54"><a href="#cb6-54" tabindex="-1"></a><span class="co">#&gt;  $ Mpox (cumulative)                                                        : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-55"><a href="#cb6-55" tabindex="-1"></a><span class="co">#&gt;  $ Yellow fever (weekly)                                                    : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-56"><a href="#cb6-56" tabindex="-1"></a><span class="co">#&gt;  $ Yellow fever (cumulative)                                                : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-57"><a href="#cb6-57" tabindex="-1"></a><span class="co">#&gt;  $ Psittacosis (weekly)                                                     : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-58"><a href="#cb6-58" tabindex="-1"></a><span class="co">#&gt;  $ Psittacosis (cumulative)                                                 : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-59"><a href="#cb6-59" tabindex="-1"></a><span class="co">#&gt;  $ Omsk hemorrhagic fever (weekly)                                          : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-60"><a href="#cb6-60" tabindex="-1"></a><span class="co">#&gt;  $ Omsk hemorrhagic fever (cumulative)                                      : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-61"><a href="#cb6-61" tabindex="-1"></a><span class="co">#&gt;  $ Relapsing fever (weekly)                                                 : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-62"><a href="#cb6-62" tabindex="-1"></a><span class="co">#&gt;  $ Relapsing fever (cumulative)                                             : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-63"><a href="#cb6-63" tabindex="-1"></a><span class="co">#&gt;  $ Kyasanur forest disease (weekly)                                         : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-64"><a href="#cb6-64" tabindex="-1"></a><span class="co">#&gt;  $ Kyasanur forest disease (cumulative)                                     : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-65"><a href="#cb6-65" tabindex="-1"></a><span class="co">#&gt;  $ Q fever (weekly)                                                         : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-66"><a href="#cb6-66" tabindex="-1"></a><span class="co">#&gt;  $ Q fever (cumulative)                                                     : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-67"><a href="#cb6-67" tabindex="-1"></a><span class="co">#&gt;  $ Rabies (weekly)                                                          : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-68"><a href="#cb6-68" tabindex="-1"></a><span class="co">#&gt;  $ Rabies (cumulative)                                                      : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-69"><a href="#cb6-69" tabindex="-1"></a><span class="co">#&gt;  $ Coccidioidomycosis (weekly)                                              : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-70"><a href="#cb6-70" tabindex="-1"></a><span class="co">#&gt;  $ Coccidioidomycosis (cumulative)                                          : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-71"><a href="#cb6-71" tabindex="-1"></a><span class="co">#&gt;  $ Zika virus infection (weekly)                                            : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-72"><a href="#cb6-72" tabindex="-1"></a><span class="co">#&gt;  $ Zika virus infection (cumulative)                                        : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-73"><a href="#cb6-73" tabindex="-1"></a><span class="co">#&gt;  $ Severe Fever with Thrombocytopenia Syndrome (SFTS) (weekly)              : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-74"><a href="#cb6-74" tabindex="-1"></a><span class="co">#&gt;  $ Severe Fever with Thrombocytopenia Syndrome (SFTS) (cumulative)          : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-75"><a href="#cb6-75" tabindex="-1"></a><span class="co">#&gt;  $ Hemorrhagic fever with renal syndrome (weekly)                           : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-76"><a href="#cb6-76" tabindex="-1"></a><span class="co">#&gt;  $ Hemorrhagic fever with renal syndrome (cumulative)                       : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-77"><a href="#cb6-77" tabindex="-1"></a><span class="co">#&gt;  $ Western equine encephalitis (weekly)                                     : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-78"><a href="#cb6-78" tabindex="-1"></a><span class="co">#&gt;  $ Western equine encephalitis (cumulative)                                 : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-79"><a href="#cb6-79" tabindex="-1"></a><span class="co">#&gt;  $ Tick-borne encephalitis (weekly)                                         : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-80"><a href="#cb6-80" tabindex="-1"></a><span class="co">#&gt;  $ Tick-borne encephalitis (cumulative)                                     : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-81"><a href="#cb6-81" tabindex="-1"></a><span class="co">#&gt;  $ Anthrax (weekly)                                                         : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-82"><a href="#cb6-82" tabindex="-1"></a><span class="co">#&gt;  $ Anthrax (cumulative)                                                     : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-83"><a href="#cb6-83" tabindex="-1"></a><span class="co">#&gt;  $ Chikungunya fever (weekly)                                               : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-84"><a href="#cb6-84" tabindex="-1"></a><span class="co">#&gt;  $ Chikungunya fever (cumulative)                                           : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-85"><a href="#cb6-85" tabindex="-1"></a><span class="co">#&gt;  $ Scrub typhus (Tsutsugamushi disease) (weekly)                            : int [1:3408] 5 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-86"><a href="#cb6-86" tabindex="-1"></a><span class="co">#&gt;  $ Scrub typhus (Tsutsugamushi disease) (cumulative)                        : int [1:3408] 5 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-87"><a href="#cb6-87" tabindex="-1"></a><span class="co">#&gt;  $ Dengue fever (weekly)                                                    : int [1:3408] 4 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-88"><a href="#cb6-88" tabindex="-1"></a><span class="co">#&gt;  $ Dengue fever (cumulative)                                                : int [1:3408] 4 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-89"><a href="#cb6-89" tabindex="-1"></a><span class="co">#&gt;  $ Eastern equine encephalitis (weekly)                                     : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-90"><a href="#cb6-90" tabindex="-1"></a><span class="co">#&gt;  $ Eastern equine encephalitis (cumulative)                                 : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-91"><a href="#cb6-91" tabindex="-1"></a><span class="co">#&gt;  $ Avian influenza (exclud. Avian influenza both H5N1 and H7N9) (weekly)    : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-92"><a href="#cb6-92" tabindex="-1"></a><span class="co">#&gt;  $ Avian influenza (exclud. Avian influenza both H5N1 and H7N9) (cumulative): int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-93"><a href="#cb6-93" tabindex="-1"></a><span class="co">#&gt;  $ Nipah virus infection (weekly)                                           : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-94"><a href="#cb6-94" tabindex="-1"></a><span class="co">#&gt;  $ Nipah virus infection (cumulative)                                       : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-95"><a href="#cb6-95" tabindex="-1"></a><span class="co">#&gt;  $ Japanese spotted fever (weekly)                                          : int [1:3408] 1 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-96"><a href="#cb6-96" tabindex="-1"></a><span class="co">#&gt;  $ Japanese spotted fever (cumulative)                                      : int [1:3408] 1 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-97"><a href="#cb6-97" tabindex="-1"></a><span class="co">#&gt;  $ Japanese encephalitis (weekly)                                           : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-98"><a href="#cb6-98" tabindex="-1"></a><span class="co">#&gt;  $ Japanese encephalitis (cumulative)                                       : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-99"><a href="#cb6-99" tabindex="-1"></a><span class="co">#&gt;  $ Hantavirus pulmonary syndrome (weekly)                                   : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-100"><a href="#cb6-100" tabindex="-1"></a><span class="co">#&gt;  $ Hantavirus pulmonary syndrome (cumulative)                               : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-101"><a href="#cb6-101" tabindex="-1"></a><span class="co">#&gt;  $ Herpes B virus infection (weekly)                                        : int [1:3408] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-102"><a href="#cb6-102" tabindex="-1"></a><span class="co">#&gt;   [list output truncated]</span></span></code></pre></div>
+</div>
+</div>
+<div id="data-merging" class="section level3">
+<h3>Data Merging</h3>
+<p>The <code>jpinfect_merge</code> function helps to merge the datasets
+into one dataset if necessary, which enables users to start their data
+analysis instantly.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="co"># Load the built-in datasets</span></span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;sex_prefecture&quot;</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;place_prefecture&quot;</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;bullet&quot;</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a><span class="co"># Merge two datasets</span></span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a>confirmed_dataset <span class="ot">&lt;-</span> <span class="fu">jpinfect_merge</span>(sex_prefecture, place_prefecture)</span>
+<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a><span class="co"># Merge three datasets</span></span>
+<span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a>bind_result <span class="ot">&lt;-</span> <span class="fu">jpinfect_merge</span>(sex_prefecture, place_prefecture, bullet)</span></code></pre></div>
+<div id="data-exploration-1" class="section level4">
+<h4>Data Exploration</h4>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="co"># Check the structure of the merged dataset</span></span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="fu">head</span>(confirmed_dataset)</span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a><span class="fu">head</span>(bind_result)</span></code></pre></div>
+</div>
+</div>
+<div id="data-transformation-from-wider-to-longer-vice-versa" class="section level3">
+<h3>Data Transformation from Wider to Longer; Vice Versa</h3>
+<p>The <code>jpinfect_pivot</code> function enables users to seamlessly
+pivot datasets between wide and long formats. This functionality is
+particularly useful for reorganising data to suit analysis or
+visualisation needs.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="co"># Convert from wide to long format</span></span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>bullet_long <span class="ot">&lt;-</span> <span class="fu">jpinfect_pivot</span>(bullet)</span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a><span class="co"># Convert from long to wide format</span></span>
+<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a>bullet_wide <span class="ot">&lt;-</span> <span class="fu">jpinfect_pivot</span>(bullet_long)</span></code></pre></div>
+<div id="data-exploration-2" class="section level4">
+<h4>Data Exploration</h4>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="co"># Check the structure of long format</span></span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a><span class="fu">head</span>(bullet_long)</span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 × 6</span></span>
+<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a><span class="co">#&gt;   prefecture  year  week date       disease                                cases</span></span>
+<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;      &lt;int&gt; &lt;int&gt; &lt;date&gt;     &lt;chr&gt;                                  &lt;int&gt;</span></span>
+<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a><span class="co">#&gt; 1 Total       2024     1 2024-01-01 Ebola hemorrhagic fever (weekly)           0</span></span>
+<span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a><span class="co">#&gt; 2 Total       2024     1 2024-01-01 Ebola hemorrhagic fever (cumulative)       0</span></span>
+<span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a><span class="co">#&gt; 3 Total       2024     1 2024-01-01 Crimean-Congo hemorrhagic fever (week…     0</span></span>
+<span id="cb10-9"><a href="#cb10-9" tabindex="-1"></a><span class="co">#&gt; 4 Total       2024     1 2024-01-01 Crimean-Congo hemorrhagic fever (cumu…     0</span></span>
+<span id="cb10-10"><a href="#cb10-10" tabindex="-1"></a><span class="co">#&gt; 5 Total       2024     1 2024-01-01 Smallpox (weekly)                          0</span></span>
+<span id="cb10-11"><a href="#cb10-11" tabindex="-1"></a><span class="co">#&gt; 6 Total       2024     1 2024-01-01 Smallpox (cumulative)                      0</span></span>
+<span id="cb10-12"><a href="#cb10-12" tabindex="-1"></a></span>
+<span id="cb10-13"><a href="#cb10-13" tabindex="-1"></a><span class="co"># Check the structure of wide format</span></span>
+<span id="cb10-14"><a href="#cb10-14" tabindex="-1"></a><span class="fu">head</span>(bullet_wide)</span>
+<span id="cb10-15"><a href="#cb10-15" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 × 178</span></span>
+<span id="cb10-16"><a href="#cb10-16" tabindex="-1"></a><span class="co">#&gt;   prefecture  year  week date       `Ebola hemorrhagic fever (weekly)`</span></span>
+<span id="cb10-17"><a href="#cb10-17" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;      &lt;int&gt; &lt;int&gt; &lt;date&gt;                                  &lt;int&gt;</span></span>
+<span id="cb10-18"><a href="#cb10-18" tabindex="-1"></a><span class="co">#&gt; 1 Total       2024     1 2024-01-01                                  0</span></span>
+<span id="cb10-19"><a href="#cb10-19" tabindex="-1"></a><span class="co">#&gt; 2 Hokkaido    2024     1 2024-01-01                                  0</span></span>
+<span id="cb10-20"><a href="#cb10-20" tabindex="-1"></a><span class="co">#&gt; 3 Aomori      2024     1 2024-01-01                                  0</span></span>
+<span id="cb10-21"><a href="#cb10-21" tabindex="-1"></a><span class="co">#&gt; 4 Iwate       2024     1 2024-01-01                                  0</span></span>
+<span id="cb10-22"><a href="#cb10-22" tabindex="-1"></a><span class="co">#&gt; 5 Miyagi      2024     1 2024-01-01                                  0</span></span>
+<span id="cb10-23"><a href="#cb10-23" tabindex="-1"></a><span class="co">#&gt; 6 Akita       2024     1 2024-01-01                                  0</span></span>
+<span id="cb10-24"><a href="#cb10-24" tabindex="-1"></a><span class="co">#&gt; # ℹ 173 more variables: `Ebola hemorrhagic fever (cumulative)` &lt;int&gt;,</span></span>
+<span id="cb10-25"><a href="#cb10-25" tabindex="-1"></a><span class="co">#&gt; #   `Crimean-Congo hemorrhagic fever (weekly)` &lt;int&gt;,</span></span>
+<span id="cb10-26"><a href="#cb10-26" tabindex="-1"></a><span class="co">#&gt; #   `Crimean-Congo hemorrhagic fever (cumulative)` &lt;int&gt;,</span></span>
+<span id="cb10-27"><a href="#cb10-27" tabindex="-1"></a><span class="co">#&gt; #   `Smallpox (weekly)` &lt;int&gt;, `Smallpox (cumulative)` &lt;int&gt;,</span></span>
+<span id="cb10-28"><a href="#cb10-28" tabindex="-1"></a><span class="co">#&gt; #   `South American hemorrhagic fever (weekly)` &lt;int&gt;,</span></span>
+<span id="cb10-29"><a href="#cb10-29" tabindex="-1"></a><span class="co">#&gt; #   `South American hemorrhagic fever (cumulative)` &lt;int&gt;,</span></span>
+<span id="cb10-30"><a href="#cb10-30" tabindex="-1"></a><span class="co">#&gt; #   `Plague (weekly)` &lt;int&gt;, `Plague (cumulative)` &lt;int&gt;, …</span></span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="building-datasets-from-source" class="section level2">
+<h2>Building Datasets from Source</h2>
+<p>Although the build-in datasets are provided in this package, it is
+ideal for scientists, epidemiologists and public health officers to
+review whole data handling process from the upstream to downstream. For
+those who cares the precision of dataset, <code>jpinfect</code> provides
+the following functions to build the same datasets or even the latest
+bullet datasets sourced from the government-provided raw data.</p>
+<div id="data-source-checks" class="section level3">
+<h3>Data Source Checks</h3>
+<p>The sources of these datasets can be checked by using
+<code>jpinfect_url_confirmed</code> for confirmed case reports and
+<code>jpinfect_url_bullet</code> for provisional case reports,
+respectively.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="co"># Check data source URL for sex and prefecture data</span></span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a><span class="fu">jpinfect_url_confirmed</span>(<span class="at">year =</span> <span class="dv">2021</span>, <span class="at">type =</span> <span class="st">&quot;sex&quot;</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a><span class="co"># Check data source URL for place of infection and prefecture data</span></span>
+<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a><span class="fu">jpinfect_url_confirmed</span>(<span class="at">year =</span> <span class="dv">2021</span>, <span class="at">type =</span> <span class="st">&quot;place&quot;</span>)</span></code></pre></div>
+</div>
+<div id="data-acquisition" class="section level3">
+<h3>Data Acquisition</h3>
+<p>The raw data can be downloaded using
+<code>jpinfect_get_confirmed</code> for confirmed case reports and
+<code>jpinfect_get_bullet</code> for provisional case reports,
+respectively. Confirmed weekly case data is organised into a single
+Microsoft Excel file for each year, while provisional data is provided
+as separate CSV files for each week. Since this function connect to the
+government website, it may take some time to download the data. To avoid
+excessive burden on the server, please kindly avoid downloading the
+files frequently. The downloaded files are saved under the
+<em>raw_data</em> folder or the specified directory.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="co"># Download data for 2020 and 2021</span></span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a><span class="fu">jpinfect_get_confirmed</span>(<span class="at">years =</span> <span class="fu">c</span>(<span class="dv">2020</span>, <span class="dv">2021</span>), <span class="at">type =</span> <span class="st">&quot;sex&quot;</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a><span class="co"># Download English data for weeks 1 to 5 in 2025</span></span>
+<span id="cb12-5"><a href="#cb12-5" tabindex="-1"></a><span class="fu">jpinfect_get_bullet</span>(<span class="at">year =</span> <span class="dv">2025</span>, <span class="at">week =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">dest_dir =</span> <span class="st">&quot;raw_data&quot;</span>)</span></code></pre></div>
+</div>
+<div id="data-import" class="section level3">
+<h3>Data Import</h3>
+<p>The acquired raw data into your local computer can be imported into R
+using <code>jpinfect_read_confirmed</code> and
+<code>jpinfect_read_bullet</code>.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="co"># Read a single file</span></span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a>dataset2021 <span class="ot">&lt;-</span> <span class="fu">jpinfect_read_confirmed</span>(<span class="at">path =</span> <span class="st">&quot;2021_Syu_01_1.xlsx&quot;</span>)</span>
+<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a><span class="co"># Read all files in a directory</span></span>
+<span id="cb13-5"><a href="#cb13-5" tabindex="-1"></a>place_dataset <span class="ot">&lt;-</span> <span class="fu">jpinfect_read_confirmed</span>(<span class="at">path =</span> <span class="st">&quot;raw_data&quot;</span>, <span class="at">type =</span> <span class="st">&quot;place&quot;</span>)</span>
+<span id="cb13-6"><a href="#cb13-6" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" tabindex="-1"></a><span class="co"># Read provisional data</span></span>
+<span id="cb13-8"><a href="#cb13-8" tabindex="-1"></a>bullet <span class="ot">&lt;-</span> <span class="fu">jpinfect_read_bullet</span>(<span class="at">directory =</span> <span class="st">&quot;raw_data&quot;</span>)</span></code></pre></div>
+</div>
+</div>
+<div id="important-notes" class="section level2">
+<h2>Important Notes</h2>
+<ul>
+<li>Data accuracy depends on the original source</li>
+<li>Data is provided by the Japan Institute for Health Security
+(JIHS)</li>
+<li>Usage is subject to the Government Standard Terms of Use (v1.0)</li>
+<li>This library is independently developed and is not affiliated with
+any government entity</li>
+</ul>
+</div>
+<div id="reporting-bugs" class="section level2">
+<h2>Reporting Bugs</h2>
+<p>If you encounter any bugs or issues while using the
+<code>jpinfect</code> package, please report them on the GitHub Issues
+page. When reporting, please include the following information:</p>
+<ul>
+<li><p>A clear description of the problem</p></li>
+<li><p>Steps to reproduce the issue</p></li>
+<li><p>Your R version and operating system</p></li>
+<li><p>Relevant error messages</p></li>
+<li><p>Example code to reproduce the problem</p></li>
+</ul>
+</div>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
