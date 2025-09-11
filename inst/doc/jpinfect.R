@@ -8,7 +8,9 @@ knitr::opts_chunk$set(
 library(jpinfect)
 
 ## ----message = FALSE, warning = FALSE, eval = FALSE---------------------------
-# # install.packages("jpinfect")
+# install.packages("jpinfect")
+
+## ----message = FALSE, warning = FALSE, eval = FALSE---------------------------
 # if(!require("remotes")) install.packages("remotes")
 # remotes::install_github("TomonoriHoshi/jpinfect")
 
