@@ -1,4 +1,4 @@
-a9b352d7587686621db48616a892ab36 *DESCRIPTION
+3265422c2728c062b856dcf2ebff882b *DESCRIPTION
 b6e2c6bf8bb53372f4318c3248ea9608 *NAMESPACE
 1094dba3e55bcb5cb15f6e7ec1ef8efc *R/data.R
 7c51a18de0213d298c8daceb19e98a74 *R/globals.R
@@ -8,7 +8,7 @@ e33d5d7ad2dd84a4b38a6590ac79e1e0 *R/jpinfect_get_confirmed.R
 07088a77e04760e3e57aacc6d4d3827c *R/jpinfect_merge.R
 48125c65e078a420e1621082f599dc13 *R/jpinfect_pivot.R
 9c20753299f396eead680152f1a3b0c8 *R/jpinfect_read_bullet.R
-b1285a28387a4f3bc6b08af0b862e2f6 *R/jpinfect_read_confirmed.R
+c35518f50a2e7db6590db7189915a9f6 *R/jpinfect_read_confirmed.R
 196d9b1577b0e9c4cef8c3b34a5a1255 *R/jpinfect_url_bullet.R
 2510b7369864cf58d16d16c79acba864 *R/jpinfect_url_confirmed.R
 87ff2e9a90f60a6db0896eb3f1c8b7c8 *build/vignette.rds
@@ -17,7 +17,7 @@ c5a57dff2cfc7e987d114f7fe6620163 *data/bullet.rda
 5a4e08f22b5502162bdc2dbb069e5516 *data/sex_prefecture.rda
 5d5a0aeeb08cc34492542b3eff048670 *inst/doc/jpinfect.R
 defeece1686d6581fa5ec1a0d26e4449 *inst/doc/jpinfect.Rmd
-213eee671f0f3620d6486d60aeed0f08 *inst/doc/jpinfect.html
+9e748cf3ec83c602ec554452a7458b6e *inst/doc/jpinfect.html
 d2b2f12e37a8b0ec523c75f513c7e4f8 *inst/extdata/1999_Syu_11.xls
 526b712b6b72a5fd96b82db1e69e9b71 *inst/extdata/2014_Syu_01_1.xlsx
 f406f848113c6ac443e777fc0c8de8e7 *inst/extdata/2014_Syu_02_1.xlsx
