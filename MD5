@@ -1,4 +1,4 @@
-584e24005985a99f54f0cef9aecb73f9 *DESCRIPTION
+45024fd04f5e1783d94061938a4203d7 *DESCRIPTION
 b6e2c6bf8bb53372f4318c3248ea9608 *NAMESPACE
 1094dba3e55bcb5cb15f6e7ec1ef8efc *R/data.R
 7c51a18de0213d298c8daceb19e98a74 *R/globals.R
@@ -12,13 +12,13 @@ c35518f50a2e7db6590db7189915a9f6 *R/jpinfect_read_confirmed.R
 196d9b1577b0e9c4cef8c3b34a5a1255 *R/jpinfect_url_bullet.R
 2510b7369864cf58d16d16c79acba864 *R/jpinfect_url_confirmed.R
 933d0ca07eb0396992c4e7fbbb9d776b *build/vignette.rds
-5f2bc3344deb756a06dee84305fc5c68 *data/bullet.rda
+758370c151f6adc394b95e3f33a48e00 *data/bullet.rda
 61fb982dc251892f9d91530b30e8b27d *data/place_prefecture.rda
 d55ebfe5d191ff0b593620bd4d6e17ba *data/sex_prefecture.rda
 96c6300412f39b9587bbb1fba1193513 *inst/CITATION
 5d5a0aeeb08cc34492542b3eff048670 *inst/doc/jpinfect.R
 defeece1686d6581fa5ec1a0d26e4449 *inst/doc/jpinfect.Rmd
-c35ff5a629aa563a8fa39b778295ecc6 *inst/doc/jpinfect.html
+cd9a4e07a6a4be3c540fef29f839044d *inst/doc/jpinfect.html
 af6cee93abb7afd823d7653d59e17aaa *inst/extdata/1999_Syu_11.xls
 526b712b6b72a5fd96b82db1e69e9b71 *inst/extdata/2014_Syu_01_1.xlsx
 f406f848113c6ac443e777fc0c8de8e7 *inst/extdata/2014_Syu_02_1.xlsx
