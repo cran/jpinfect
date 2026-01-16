@@ -1,6 +1,6 @@
-45024fd04f5e1783d94061938a4203d7 *DESCRIPTION
+4f43cc9f40d294eba00f132509abafb8 *DESCRIPTION
 b6e2c6bf8bb53372f4318c3248ea9608 *NAMESPACE
-1094dba3e55bcb5cb15f6e7ec1ef8efc *R/data.R
+a6ba03a1d676e387eb6d664783ad4f57 *R/data.R
 7c51a18de0213d298c8daceb19e98a74 *R/globals.R
 e478f2605cedad20e2a3ceb70746b889 *R/jpinfect-package.R
 5df505200f819eae94f13fbc9db6192b *R/jpinfect_get_bullet.R
@@ -12,13 +12,13 @@ c35518f50a2e7db6590db7189915a9f6 *R/jpinfect_read_confirmed.R
 196d9b1577b0e9c4cef8c3b34a5a1255 *R/jpinfect_url_bullet.R
 2510b7369864cf58d16d16c79acba864 *R/jpinfect_url_confirmed.R
 933d0ca07eb0396992c4e7fbbb9d776b *build/vignette.rds
-758370c151f6adc394b95e3f33a48e00 *data/bullet.rda
+d3aabcc1f65a82421a015eb7a1b6f9ae *data/bullet.rda
 61fb982dc251892f9d91530b30e8b27d *data/place_prefecture.rda
 d55ebfe5d191ff0b593620bd4d6e17ba *data/sex_prefecture.rda
-96c6300412f39b9587bbb1fba1193513 *inst/CITATION
+2c3836b28f44ce6528c894c2cddb50e1 *inst/CITATION
 5d5a0aeeb08cc34492542b3eff048670 *inst/doc/jpinfect.R
 defeece1686d6581fa5ec1a0d26e4449 *inst/doc/jpinfect.Rmd
-cd9a4e07a6a4be3c540fef29f839044d *inst/doc/jpinfect.html
+63de53ecbe6be2e2fd00a46a18448541 *inst/doc/jpinfect.html
 af6cee93abb7afd823d7653d59e17aaa *inst/extdata/1999_Syu_11.xls
 526b712b6b72a5fd96b82db1e69e9b71 *inst/extdata/2014_Syu_01_1.xlsx
 f406f848113c6ac443e777fc0c8de8e7 *inst/extdata/2014_Syu_02_1.xlsx
@@ -27,7 +27,7 @@ f406f848113c6ac443e777fc0c8de8e7 *inst/extdata/2014_Syu_02_1.xlsx
 4a87faff43c1b50654c37958ee366150 *inst/extdata/2025_01_zensu_jp.csv
 71ff7af27a2b13cc18e1589d11a116c3 *inst/extdata/2025_02_zensu_en.csv
 3e6d845d7c5d35d1f68789b67751d3cd *inst/extdata/2025_02_zensu_jp.csv
-e8803f94818180c58b5b3dcfa6d3c5cf *man/bullet.Rd
+6ac5bab899074ccf76e187b985159acb *man/bullet.Rd
 4a03e6878aac8c9f13bca07c405e4dad *man/dot-col_join_rename.Rd
 1c897a5ffc72716cfba781dfc9c407cb *man/dot-col_rename.Rd
 8213bcdd698467e48c07fbb1f4533179 *man/dot-col_rename_bullet.Rd
@@ -53,6 +53,6 @@ e96d03e0d49dd113c7435b4e9347664c *man/prefecture_en.Rd
 d0dcb281f0094b7e6f8d706e309d4033 *tests/testthat/test-jpinfect_pivot.R
 b522ad239ec93523f25e87d3ab0e3957 *tests/testthat/test-jpinfect_read_bullet.R
 3db880f6f4efb0bc60fbe51db304780f *tests/testthat/test-jpinfect_read_confirmed.R
-e7369a83c8f4ed844dbaea6ba03417ca *tests/testthat/test-jpinfect_url_bullet.R
+2098d949945ac02c6c006912ce662504 *tests/testthat/test-jpinfect_url_bullet.R
 4cf09130a09316217990a660428340f1 *tests/testthat/test-jpinfect_url_confirmed.R
 defeece1686d6581fa5ec1a0d26e4449 *vignettes/jpinfect.Rmd
