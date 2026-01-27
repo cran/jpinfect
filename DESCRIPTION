@@ -2,7 +2,7 @@ Package: jpinfect
 Type: Package
 Title: Acquiring and Processing Data from Japan Institute for Health
         Security
-Version: 0.1.10
+Version: 2023.2026.02
 Authors@R: c(
     person(
       "Tomonori", "Hoshi",
@@ -40,10 +40,10 @@ VignetteBuilder: knitr
 URL: https://github.com/TomonoriHoshi/jpinfect
 BugReports: https://github.com/TomonoriHoshi/jpinfect/issues
 NeedsCompilation: no
-Packaged: 2026-01-16 18:29:38 UTC; Tomonori Hoshi
+Packaged: 2026-01-23 06:39:03 UTC; Tomonori Hoshi
 Author: Tomonori Hoshi [aut, cre],
   Erina Ishigaki [aut],
   Satoshi Kaneko [aut]
 Depends: R (>= 3.5.0)
 Repository: CRAN
-Date/Publication: 2026-01-16 20:20:02 UTC
+Date/Publication: 2026-01-27 12:30:11 UTC

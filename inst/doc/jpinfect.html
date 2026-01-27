@@ -12,7 +12,7 @@
 
 <meta name="author" content="Tomonori Hoshi, Erina Ishigaki, Sathoshi Kaneko" />
 
-<meta name="date" content="2026-01-17" />
+<meta name="date" content="2026-01-23" />
 
 <title>jpinfect: Notifiable Infectious Diseases in Japan</title>
 
@@ -341,7 +341,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <h1 class="title toc-ignore">jpinfect: Notifiable Infectious Diseases in
 Japan</h1>
 <h4 class="author">Tomonori Hoshi, Erina Ishigaki, Sathoshi Kaneko</h4>
-<h4 class="date">2026-01-17</h4>
+<h4 class="date">2026-01-23</h4>
 
 
 <div id="TOC">
@@ -653,106 +653,106 @@ packages.</p>
 <span id="cb6-101"><a href="#cb6-101" tabindex="-1"></a><span class="co">#&gt;  $ AIDS (Others)                                                         : int [1:57552] 1 0 0 0 0 0 0 0 0 0 ...</span></span>
 <span id="cb6-102"><a href="#cb6-102" tabindex="-1"></a><span class="co">#&gt;   [list output truncated]</span></span></code></pre></div>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="fu">str</span>(bullet)</span>
-<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="co">#&gt; tibble [4,992 × 178] (S3: tbl_df/tbl/data.frame)</span></span>
-<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="co">#&gt;  $ prefecture                                                               : chr [1:4992] &quot;Total&quot; &quot;Hokkaido&quot; &quot;Aomori&quot; &quot;Iwate&quot; ...</span></span>
-<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a><span class="co">#&gt;  $ year                                                                     : int [1:4992] 2024 2024 2024 2024 2024 2024 2024 2024 2024 2024 ...</span></span>
-<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a><span class="co">#&gt;  $ week                                                                     : int [1:4992] 1 1 1 1 1 1 1 1 1 1 ...</span></span>
-<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a><span class="co">#&gt;  $ date                                                                     : Date[1:4992], format: &quot;2024-01-07&quot; &quot;2024-01-07&quot; ...</span></span>
-<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a><span class="co">#&gt;  $ Ebola hemorrhagic fever (weekly)                                         : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a><span class="co">#&gt;  $ Ebola hemorrhagic fever (cumulative)                                     : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a><span class="co">#&gt;  $ Crimean-Congo hemorrhagic fever (weekly)                                 : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a><span class="co">#&gt;  $ Crimean-Congo hemorrhagic fever (cumulative)                             : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-11"><a href="#cb7-11" tabindex="-1"></a><span class="co">#&gt;  $ Smallpox (weekly)                                                        : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-12"><a href="#cb7-12" tabindex="-1"></a><span class="co">#&gt;  $ Smallpox (cumulative)                                                    : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-13"><a href="#cb7-13" tabindex="-1"></a><span class="co">#&gt;  $ South American hemorrhagic fever (weekly)                                : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-14"><a href="#cb7-14" tabindex="-1"></a><span class="co">#&gt;  $ South American hemorrhagic fever (cumulative)                            : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-15"><a href="#cb7-15" tabindex="-1"></a><span class="co">#&gt;  $ Plague (weekly)                                                          : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-16"><a href="#cb7-16" tabindex="-1"></a><span class="co">#&gt;  $ Plague (cumulative)                                                      : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-17"><a href="#cb7-17" tabindex="-1"></a><span class="co">#&gt;  $ Marburg disease (weekly)                                                 : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-18"><a href="#cb7-18" tabindex="-1"></a><span class="co">#&gt;  $ Marburg disease (cumulative)                                             : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-19"><a href="#cb7-19" tabindex="-1"></a><span class="co">#&gt;  $ Lassa fever (weekly)                                                     : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-20"><a href="#cb7-20" tabindex="-1"></a><span class="co">#&gt;  $ Lassa fever (cumulative)                                                 : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-21"><a href="#cb7-21" tabindex="-1"></a><span class="co">#&gt;  $ Acute poliomyelitis (weekly)                                             : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-22"><a href="#cb7-22" tabindex="-1"></a><span class="co">#&gt;  $ Acute poliomyelitis (cumulative)                                         : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-23"><a href="#cb7-23" tabindex="-1"></a><span class="co">#&gt;  $ Tuberculosis (weekly)                                                    : int [1:4992] 78 2 0 0 6 1 1 0 4 1 ...</span></span>
-<span id="cb7-24"><a href="#cb7-24" tabindex="-1"></a><span class="co">#&gt;  $ Tuberculosis (cumulative)                                                : int [1:4992] 78 2 0 0 6 1 1 0 4 1 ...</span></span>
-<span id="cb7-25"><a href="#cb7-25" tabindex="-1"></a><span class="co">#&gt;  $ Diphtheria (weekly)                                                      : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-26"><a href="#cb7-26" tabindex="-1"></a><span class="co">#&gt;  $ Diphtheria (cumulative)                                                  : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-27"><a href="#cb7-27" tabindex="-1"></a><span class="co">#&gt;  $ Severe Acute Respiratory Syndrome (SARS) (weekly)                        : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-28"><a href="#cb7-28" tabindex="-1"></a><span class="co">#&gt;  $ Severe Acute Respiratory Syndrome (SARS) (cumulative)                    : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-29"><a href="#cb7-29" tabindex="-1"></a><span class="co">#&gt;  $ Middle East Respiratory Syndrome Coronavirus (weekly)                    : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-30"><a href="#cb7-30" tabindex="-1"></a><span class="co">#&gt;  $ Middle East Respiratory Syndrome Coronavirus (cumulative)                : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-31"><a href="#cb7-31" tabindex="-1"></a><span class="co">#&gt;  $ Avian influenza H5N1 (weekly)                                            : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-32"><a href="#cb7-32" tabindex="-1"></a><span class="co">#&gt;  $ Avian influenza H5N1 (cumulative)                                        : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-33"><a href="#cb7-33" tabindex="-1"></a><span class="co">#&gt;  $ Avian influenza H7N9 (weekly)                                            : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-34"><a href="#cb7-34" tabindex="-1"></a><span class="co">#&gt;  $ Avian influenza H7N9 (cumulative)                                        : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-35"><a href="#cb7-35" tabindex="-1"></a><span class="co">#&gt;  $ Cholera (weekly)                                                         : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-36"><a href="#cb7-36" tabindex="-1"></a><span class="co">#&gt;  $ Cholera (cumulative)                                                     : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-37"><a href="#cb7-37" tabindex="-1"></a><span class="co">#&gt;  $ Shigellosis (weekly)                                                     : int [1:4992] 2 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-38"><a href="#cb7-38" tabindex="-1"></a><span class="co">#&gt;  $ Shigellosis (cumulative)                                                 : int [1:4992] 2 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-39"><a href="#cb7-39" tabindex="-1"></a><span class="co">#&gt;  $ Enterohemorrhagic Escherichia coli infection (weekly)                    : int [1:4992] 9 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-40"><a href="#cb7-40" tabindex="-1"></a><span class="co">#&gt;  $ Enterohemorrhagic Escherichia coli infection (cumulative)                : int [1:4992] 9 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-41"><a href="#cb7-41" tabindex="-1"></a><span class="co">#&gt;  $ Typhoid fever (weekly)                                                   : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-42"><a href="#cb7-42" tabindex="-1"></a><span class="co">#&gt;  $ Typhoid fever (cumulative)                                               : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-43"><a href="#cb7-43" tabindex="-1"></a><span class="co">#&gt;  $ Paratyphoid fever (weekly)                                               : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-44"><a href="#cb7-44" tabindex="-1"></a><span class="co">#&gt;  $ Paratyphoid fever (cumulative)                                           : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-45"><a href="#cb7-45" tabindex="-1"></a><span class="co">#&gt;  $ Hepatitis E (weekly)                                                     : int [1:4992] 6 0 0 0 1 0 0 0 0 0 ...</span></span>
-<span id="cb7-46"><a href="#cb7-46" tabindex="-1"></a><span class="co">#&gt;  $ Hepatitis E (cumulative)                                                 : int [1:4992] 6 0 0 0 1 0 0 0 0 0 ...</span></span>
-<span id="cb7-47"><a href="#cb7-47" tabindex="-1"></a><span class="co">#&gt;  $ West Nile fever (weekly)                                                 : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-48"><a href="#cb7-48" tabindex="-1"></a><span class="co">#&gt;  $ West Nile fever (cumulative)                                             : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-49"><a href="#cb7-49" tabindex="-1"></a><span class="co">#&gt;  $ Hepatitis A (weekly)                                                     : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-50"><a href="#cb7-50" tabindex="-1"></a><span class="co">#&gt;  $ Hepatitis A (cumulative)                                                 : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-51"><a href="#cb7-51" tabindex="-1"></a><span class="co">#&gt;  $ Echinococcosis (weekly)                                                  : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-52"><a href="#cb7-52" tabindex="-1"></a><span class="co">#&gt;  $ Echinococcosis (cumulative)                                              : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-53"><a href="#cb7-53" tabindex="-1"></a><span class="co">#&gt;  $ Mpox (weekly)                                                            : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-54"><a href="#cb7-54" tabindex="-1"></a><span class="co">#&gt;  $ Mpox (cumulative)                                                        : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-55"><a href="#cb7-55" tabindex="-1"></a><span class="co">#&gt;  $ Yellow fever (weekly)                                                    : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-56"><a href="#cb7-56" tabindex="-1"></a><span class="co">#&gt;  $ Yellow fever (cumulative)                                                : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-57"><a href="#cb7-57" tabindex="-1"></a><span class="co">#&gt;  $ Psittacosis (weekly)                                                     : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-58"><a href="#cb7-58" tabindex="-1"></a><span class="co">#&gt;  $ Psittacosis (cumulative)                                                 : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-59"><a href="#cb7-59" tabindex="-1"></a><span class="co">#&gt;  $ Omsk hemorrhagic fever (weekly)                                          : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-60"><a href="#cb7-60" tabindex="-1"></a><span class="co">#&gt;  $ Omsk hemorrhagic fever (cumulative)                                      : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-61"><a href="#cb7-61" tabindex="-1"></a><span class="co">#&gt;  $ Relapsing fever (weekly)                                                 : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-62"><a href="#cb7-62" tabindex="-1"></a><span class="co">#&gt;  $ Relapsing fever (cumulative)                                             : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-63"><a href="#cb7-63" tabindex="-1"></a><span class="co">#&gt;  $ Kyasanur forest disease (weekly)                                         : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-64"><a href="#cb7-64" tabindex="-1"></a><span class="co">#&gt;  $ Kyasanur forest disease (cumulative)                                     : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-65"><a href="#cb7-65" tabindex="-1"></a><span class="co">#&gt;  $ Q fever (weekly)                                                         : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-66"><a href="#cb7-66" tabindex="-1"></a><span class="co">#&gt;  $ Q fever (cumulative)                                                     : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-67"><a href="#cb7-67" tabindex="-1"></a><span class="co">#&gt;  $ Rabies (weekly)                                                          : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-68"><a href="#cb7-68" tabindex="-1"></a><span class="co">#&gt;  $ Rabies (cumulative)                                                      : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-69"><a href="#cb7-69" tabindex="-1"></a><span class="co">#&gt;  $ Coccidioidomycosis (weekly)                                              : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-70"><a href="#cb7-70" tabindex="-1"></a><span class="co">#&gt;  $ Coccidioidomycosis (cumulative)                                          : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-71"><a href="#cb7-71" tabindex="-1"></a><span class="co">#&gt;  $ Zika virus infection (weekly)                                            : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-72"><a href="#cb7-72" tabindex="-1"></a><span class="co">#&gt;  $ Zika virus infection (cumulative)                                        : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-73"><a href="#cb7-73" tabindex="-1"></a><span class="co">#&gt;  $ Severe Fever with Thrombocytopenia Syndrome (SFTS) (weekly)              : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-74"><a href="#cb7-74" tabindex="-1"></a><span class="co">#&gt;  $ Severe Fever with Thrombocytopenia Syndrome (SFTS) (cumulative)          : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-75"><a href="#cb7-75" tabindex="-1"></a><span class="co">#&gt;  $ Hemorrhagic fever with renal syndrome (weekly)                           : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-76"><a href="#cb7-76" tabindex="-1"></a><span class="co">#&gt;  $ Hemorrhagic fever with renal syndrome (cumulative)                       : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-77"><a href="#cb7-77" tabindex="-1"></a><span class="co">#&gt;  $ Western equine encephalitis (weekly)                                     : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-78"><a href="#cb7-78" tabindex="-1"></a><span class="co">#&gt;  $ Western equine encephalitis (cumulative)                                 : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-79"><a href="#cb7-79" tabindex="-1"></a><span class="co">#&gt;  $ Tick-borne encephalitis (weekly)                                         : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-80"><a href="#cb7-80" tabindex="-1"></a><span class="co">#&gt;  $ Tick-borne encephalitis (cumulative)                                     : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-81"><a href="#cb7-81" tabindex="-1"></a><span class="co">#&gt;  $ Anthrax (weekly)                                                         : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-82"><a href="#cb7-82" tabindex="-1"></a><span class="co">#&gt;  $ Anthrax (cumulative)                                                     : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-83"><a href="#cb7-83" tabindex="-1"></a><span class="co">#&gt;  $ Chikungunya fever (weekly)                                               : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-84"><a href="#cb7-84" tabindex="-1"></a><span class="co">#&gt;  $ Chikungunya fever (cumulative)                                           : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-85"><a href="#cb7-85" tabindex="-1"></a><span class="co">#&gt;  $ Scrub typhus (Tsutsugamushi disease) (weekly)                            : int [1:4992] 5 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-86"><a href="#cb7-86" tabindex="-1"></a><span class="co">#&gt;  $ Scrub typhus (Tsutsugamushi disease) (cumulative)                        : int [1:4992] 5 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-87"><a href="#cb7-87" tabindex="-1"></a><span class="co">#&gt;  $ Dengue fever (weekly)                                                    : int [1:4992] 4 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-88"><a href="#cb7-88" tabindex="-1"></a><span class="co">#&gt;  $ Dengue fever (cumulative)                                                : int [1:4992] 4 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-89"><a href="#cb7-89" tabindex="-1"></a><span class="co">#&gt;  $ Eastern equine encephalitis (weekly)                                     : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-90"><a href="#cb7-90" tabindex="-1"></a><span class="co">#&gt;  $ Eastern equine encephalitis (cumulative)                                 : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-91"><a href="#cb7-91" tabindex="-1"></a><span class="co">#&gt;  $ Avian influenza (exclud. Avian influenza both H5N1 and H7N9) (weekly)    : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-92"><a href="#cb7-92" tabindex="-1"></a><span class="co">#&gt;  $ Avian influenza (exclud. Avian influenza both H5N1 and H7N9) (cumulative): int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-93"><a href="#cb7-93" tabindex="-1"></a><span class="co">#&gt;  $ Nipah virus infection (weekly)                                           : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-94"><a href="#cb7-94" tabindex="-1"></a><span class="co">#&gt;  $ Nipah virus infection (cumulative)                                       : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-95"><a href="#cb7-95" tabindex="-1"></a><span class="co">#&gt;  $ Japanese spotted fever (weekly)                                          : int [1:4992] 1 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-96"><a href="#cb7-96" tabindex="-1"></a><span class="co">#&gt;  $ Japanese spotted fever (cumulative)                                      : int [1:4992] 1 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-97"><a href="#cb7-97" tabindex="-1"></a><span class="co">#&gt;  $ Japanese encephalitis (weekly)                                           : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-98"><a href="#cb7-98" tabindex="-1"></a><span class="co">#&gt;  $ Japanese encephalitis (cumulative)                                       : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-99"><a href="#cb7-99" tabindex="-1"></a><span class="co">#&gt;  $ Hantavirus pulmonary syndrome (weekly)                                   : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-100"><a href="#cb7-100" tabindex="-1"></a><span class="co">#&gt;  $ Hantavirus pulmonary syndrome (cumulative)                               : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb7-101"><a href="#cb7-101" tabindex="-1"></a><span class="co">#&gt;  $ Herpes B virus infection (weekly)                                        : int [1:4992] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="co">#&gt; tibble [5,088 × 178] (S3: tbl_df/tbl/data.frame)</span></span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="co">#&gt;  $ prefecture                                                               : chr [1:5088] &quot;Total&quot; &quot;Hokkaido&quot; &quot;Aomori&quot; &quot;Iwate&quot; ...</span></span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a><span class="co">#&gt;  $ year                                                                     : int [1:5088] 2024 2024 2024 2024 2024 2024 2024 2024 2024 2024 ...</span></span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a><span class="co">#&gt;  $ week                                                                     : int [1:5088] 1 1 1 1 1 1 1 1 1 1 ...</span></span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a><span class="co">#&gt;  $ date                                                                     : Date[1:5088], format: &quot;2024-01-07&quot; &quot;2024-01-07&quot; ...</span></span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a><span class="co">#&gt;  $ Ebola hemorrhagic fever (weekly)                                         : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a><span class="co">#&gt;  $ Ebola hemorrhagic fever (cumulative)                                     : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a><span class="co">#&gt;  $ Crimean-Congo hemorrhagic fever (weekly)                                 : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a><span class="co">#&gt;  $ Crimean-Congo hemorrhagic fever (cumulative)                             : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-11"><a href="#cb7-11" tabindex="-1"></a><span class="co">#&gt;  $ Smallpox (weekly)                                                        : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-12"><a href="#cb7-12" tabindex="-1"></a><span class="co">#&gt;  $ Smallpox (cumulative)                                                    : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-13"><a href="#cb7-13" tabindex="-1"></a><span class="co">#&gt;  $ South American hemorrhagic fever (weekly)                                : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-14"><a href="#cb7-14" tabindex="-1"></a><span class="co">#&gt;  $ South American hemorrhagic fever (cumulative)                            : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-15"><a href="#cb7-15" tabindex="-1"></a><span class="co">#&gt;  $ Plague (weekly)                                                          : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-16"><a href="#cb7-16" tabindex="-1"></a><span class="co">#&gt;  $ Plague (cumulative)                                                      : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-17"><a href="#cb7-17" tabindex="-1"></a><span class="co">#&gt;  $ Marburg disease (weekly)                                                 : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-18"><a href="#cb7-18" tabindex="-1"></a><span class="co">#&gt;  $ Marburg disease (cumulative)                                             : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-19"><a href="#cb7-19" tabindex="-1"></a><span class="co">#&gt;  $ Lassa fever (weekly)                                                     : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-20"><a href="#cb7-20" tabindex="-1"></a><span class="co">#&gt;  $ Lassa fever (cumulative)                                                 : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-21"><a href="#cb7-21" tabindex="-1"></a><span class="co">#&gt;  $ Acute poliomyelitis (weekly)                                             : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-22"><a href="#cb7-22" tabindex="-1"></a><span class="co">#&gt;  $ Acute poliomyelitis (cumulative)                                         : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-23"><a href="#cb7-23" tabindex="-1"></a><span class="co">#&gt;  $ Tuberculosis (weekly)                                                    : int [1:5088] 78 2 0 0 6 1 1 0 4 1 ...</span></span>
+<span id="cb7-24"><a href="#cb7-24" tabindex="-1"></a><span class="co">#&gt;  $ Tuberculosis (cumulative)                                                : int [1:5088] 78 2 0 0 6 1 1 0 4 1 ...</span></span>
+<span id="cb7-25"><a href="#cb7-25" tabindex="-1"></a><span class="co">#&gt;  $ Diphtheria (weekly)                                                      : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-26"><a href="#cb7-26" tabindex="-1"></a><span class="co">#&gt;  $ Diphtheria (cumulative)                                                  : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-27"><a href="#cb7-27" tabindex="-1"></a><span class="co">#&gt;  $ Severe Acute Respiratory Syndrome (SARS) (weekly)                        : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-28"><a href="#cb7-28" tabindex="-1"></a><span class="co">#&gt;  $ Severe Acute Respiratory Syndrome (SARS) (cumulative)                    : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-29"><a href="#cb7-29" tabindex="-1"></a><span class="co">#&gt;  $ Middle East Respiratory Syndrome Coronavirus (weekly)                    : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-30"><a href="#cb7-30" tabindex="-1"></a><span class="co">#&gt;  $ Middle East Respiratory Syndrome Coronavirus (cumulative)                : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-31"><a href="#cb7-31" tabindex="-1"></a><span class="co">#&gt;  $ Avian influenza H5N1 (weekly)                                            : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-32"><a href="#cb7-32" tabindex="-1"></a><span class="co">#&gt;  $ Avian influenza H5N1 (cumulative)                                        : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-33"><a href="#cb7-33" tabindex="-1"></a><span class="co">#&gt;  $ Avian influenza H7N9 (weekly)                                            : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-34"><a href="#cb7-34" tabindex="-1"></a><span class="co">#&gt;  $ Avian influenza H7N9 (cumulative)                                        : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-35"><a href="#cb7-35" tabindex="-1"></a><span class="co">#&gt;  $ Cholera (weekly)                                                         : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-36"><a href="#cb7-36" tabindex="-1"></a><span class="co">#&gt;  $ Cholera (cumulative)                                                     : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-37"><a href="#cb7-37" tabindex="-1"></a><span class="co">#&gt;  $ Shigellosis (weekly)                                                     : int [1:5088] 2 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-38"><a href="#cb7-38" tabindex="-1"></a><span class="co">#&gt;  $ Shigellosis (cumulative)                                                 : int [1:5088] 2 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-39"><a href="#cb7-39" tabindex="-1"></a><span class="co">#&gt;  $ Enterohemorrhagic Escherichia coli infection (weekly)                    : int [1:5088] 9 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-40"><a href="#cb7-40" tabindex="-1"></a><span class="co">#&gt;  $ Enterohemorrhagic Escherichia coli infection (cumulative)                : int [1:5088] 9 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-41"><a href="#cb7-41" tabindex="-1"></a><span class="co">#&gt;  $ Typhoid fever (weekly)                                                   : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-42"><a href="#cb7-42" tabindex="-1"></a><span class="co">#&gt;  $ Typhoid fever (cumulative)                                               : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-43"><a href="#cb7-43" tabindex="-1"></a><span class="co">#&gt;  $ Paratyphoid fever (weekly)                                               : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-44"><a href="#cb7-44" tabindex="-1"></a><span class="co">#&gt;  $ Paratyphoid fever (cumulative)                                           : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-45"><a href="#cb7-45" tabindex="-1"></a><span class="co">#&gt;  $ Hepatitis E (weekly)                                                     : int [1:5088] 6 0 0 0 1 0 0 0 0 0 ...</span></span>
+<span id="cb7-46"><a href="#cb7-46" tabindex="-1"></a><span class="co">#&gt;  $ Hepatitis E (cumulative)                                                 : int [1:5088] 6 0 0 0 1 0 0 0 0 0 ...</span></span>
+<span id="cb7-47"><a href="#cb7-47" tabindex="-1"></a><span class="co">#&gt;  $ West Nile fever (weekly)                                                 : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-48"><a href="#cb7-48" tabindex="-1"></a><span class="co">#&gt;  $ West Nile fever (cumulative)                                             : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-49"><a href="#cb7-49" tabindex="-1"></a><span class="co">#&gt;  $ Hepatitis A (weekly)                                                     : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-50"><a href="#cb7-50" tabindex="-1"></a><span class="co">#&gt;  $ Hepatitis A (cumulative)                                                 : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-51"><a href="#cb7-51" tabindex="-1"></a><span class="co">#&gt;  $ Echinococcosis (weekly)                                                  : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-52"><a href="#cb7-52" tabindex="-1"></a><span class="co">#&gt;  $ Echinococcosis (cumulative)                                              : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-53"><a href="#cb7-53" tabindex="-1"></a><span class="co">#&gt;  $ Mpox (weekly)                                                            : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-54"><a href="#cb7-54" tabindex="-1"></a><span class="co">#&gt;  $ Mpox (cumulative)                                                        : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-55"><a href="#cb7-55" tabindex="-1"></a><span class="co">#&gt;  $ Yellow fever (weekly)                                                    : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-56"><a href="#cb7-56" tabindex="-1"></a><span class="co">#&gt;  $ Yellow fever (cumulative)                                                : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-57"><a href="#cb7-57" tabindex="-1"></a><span class="co">#&gt;  $ Psittacosis (weekly)                                                     : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-58"><a href="#cb7-58" tabindex="-1"></a><span class="co">#&gt;  $ Psittacosis (cumulative)                                                 : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-59"><a href="#cb7-59" tabindex="-1"></a><span class="co">#&gt;  $ Omsk hemorrhagic fever (weekly)                                          : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-60"><a href="#cb7-60" tabindex="-1"></a><span class="co">#&gt;  $ Omsk hemorrhagic fever (cumulative)                                      : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-61"><a href="#cb7-61" tabindex="-1"></a><span class="co">#&gt;  $ Relapsing fever (weekly)                                                 : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-62"><a href="#cb7-62" tabindex="-1"></a><span class="co">#&gt;  $ Relapsing fever (cumulative)                                             : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-63"><a href="#cb7-63" tabindex="-1"></a><span class="co">#&gt;  $ Kyasanur forest disease (weekly)                                         : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-64"><a href="#cb7-64" tabindex="-1"></a><span class="co">#&gt;  $ Kyasanur forest disease (cumulative)                                     : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-65"><a href="#cb7-65" tabindex="-1"></a><span class="co">#&gt;  $ Q fever (weekly)                                                         : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-66"><a href="#cb7-66" tabindex="-1"></a><span class="co">#&gt;  $ Q fever (cumulative)                                                     : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-67"><a href="#cb7-67" tabindex="-1"></a><span class="co">#&gt;  $ Rabies (weekly)                                                          : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-68"><a href="#cb7-68" tabindex="-1"></a><span class="co">#&gt;  $ Rabies (cumulative)                                                      : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-69"><a href="#cb7-69" tabindex="-1"></a><span class="co">#&gt;  $ Coccidioidomycosis (weekly)                                              : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-70"><a href="#cb7-70" tabindex="-1"></a><span class="co">#&gt;  $ Coccidioidomycosis (cumulative)                                          : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-71"><a href="#cb7-71" tabindex="-1"></a><span class="co">#&gt;  $ Zika virus infection (weekly)                                            : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-72"><a href="#cb7-72" tabindex="-1"></a><span class="co">#&gt;  $ Zika virus infection (cumulative)                                        : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-73"><a href="#cb7-73" tabindex="-1"></a><span class="co">#&gt;  $ Severe Fever with Thrombocytopenia Syndrome (SFTS) (weekly)              : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-74"><a href="#cb7-74" tabindex="-1"></a><span class="co">#&gt;  $ Severe Fever with Thrombocytopenia Syndrome (SFTS) (cumulative)          : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-75"><a href="#cb7-75" tabindex="-1"></a><span class="co">#&gt;  $ Hemorrhagic fever with renal syndrome (weekly)                           : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-76"><a href="#cb7-76" tabindex="-1"></a><span class="co">#&gt;  $ Hemorrhagic fever with renal syndrome (cumulative)                       : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-77"><a href="#cb7-77" tabindex="-1"></a><span class="co">#&gt;  $ Western equine encephalitis (weekly)                                     : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-78"><a href="#cb7-78" tabindex="-1"></a><span class="co">#&gt;  $ Western equine encephalitis (cumulative)                                 : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-79"><a href="#cb7-79" tabindex="-1"></a><span class="co">#&gt;  $ Tick-borne encephalitis (weekly)                                         : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-80"><a href="#cb7-80" tabindex="-1"></a><span class="co">#&gt;  $ Tick-borne encephalitis (cumulative)                                     : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-81"><a href="#cb7-81" tabindex="-1"></a><span class="co">#&gt;  $ Anthrax (weekly)                                                         : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-82"><a href="#cb7-82" tabindex="-1"></a><span class="co">#&gt;  $ Anthrax (cumulative)                                                     : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-83"><a href="#cb7-83" tabindex="-1"></a><span class="co">#&gt;  $ Chikungunya fever (weekly)                                               : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-84"><a href="#cb7-84" tabindex="-1"></a><span class="co">#&gt;  $ Chikungunya fever (cumulative)                                           : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-85"><a href="#cb7-85" tabindex="-1"></a><span class="co">#&gt;  $ Scrub typhus (Tsutsugamushi disease) (weekly)                            : int [1:5088] 5 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-86"><a href="#cb7-86" tabindex="-1"></a><span class="co">#&gt;  $ Scrub typhus (Tsutsugamushi disease) (cumulative)                        : int [1:5088] 5 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-87"><a href="#cb7-87" tabindex="-1"></a><span class="co">#&gt;  $ Dengue fever (weekly)                                                    : int [1:5088] 4 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-88"><a href="#cb7-88" tabindex="-1"></a><span class="co">#&gt;  $ Dengue fever (cumulative)                                                : int [1:5088] 4 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-89"><a href="#cb7-89" tabindex="-1"></a><span class="co">#&gt;  $ Eastern equine encephalitis (weekly)                                     : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-90"><a href="#cb7-90" tabindex="-1"></a><span class="co">#&gt;  $ Eastern equine encephalitis (cumulative)                                 : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-91"><a href="#cb7-91" tabindex="-1"></a><span class="co">#&gt;  $ Avian influenza (exclud. Avian influenza both H5N1 and H7N9) (weekly)    : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-92"><a href="#cb7-92" tabindex="-1"></a><span class="co">#&gt;  $ Avian influenza (exclud. Avian influenza both H5N1 and H7N9) (cumulative): int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-93"><a href="#cb7-93" tabindex="-1"></a><span class="co">#&gt;  $ Nipah virus infection (weekly)                                           : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-94"><a href="#cb7-94" tabindex="-1"></a><span class="co">#&gt;  $ Nipah virus infection (cumulative)                                       : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-95"><a href="#cb7-95" tabindex="-1"></a><span class="co">#&gt;  $ Japanese spotted fever (weekly)                                          : int [1:5088] 1 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-96"><a href="#cb7-96" tabindex="-1"></a><span class="co">#&gt;  $ Japanese spotted fever (cumulative)                                      : int [1:5088] 1 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-97"><a href="#cb7-97" tabindex="-1"></a><span class="co">#&gt;  $ Japanese encephalitis (weekly)                                           : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-98"><a href="#cb7-98" tabindex="-1"></a><span class="co">#&gt;  $ Japanese encephalitis (cumulative)                                       : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-99"><a href="#cb7-99" tabindex="-1"></a><span class="co">#&gt;  $ Hantavirus pulmonary syndrome (weekly)                                   : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-100"><a href="#cb7-100" tabindex="-1"></a><span class="co">#&gt;  $ Hantavirus pulmonary syndrome (cumulative)                               : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb7-101"><a href="#cb7-101" tabindex="-1"></a><span class="co">#&gt;  $ Herpes B virus infection (weekly)                                        : int [1:5088] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
 <span id="cb7-102"><a href="#cb7-102" tabindex="-1"></a><span class="co">#&gt;   [list output truncated]</span></span></code></pre></div>
 </div>
 </div>
