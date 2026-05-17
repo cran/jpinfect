@@ -5,7 +5,7 @@
 \alias{place_prefecture}
 \title{Place Prefecture Data}
 \format{
-A data frame with 57553 rows and 420 columns.
+A data frame with 60048 rows and 420 columns.
 \describe{
 \item{prefecture}{Case numbers for prefecture}
 \item{year}{Case numbers for year}
@@ -427,6 +427,10 @@ A data frame with 57553 rows and 420 columns.
 \item{HIV/AIDS (Inside Japan)}{Case numbers for HIV/AIDS (Inside Japan)}
 \item{HIV/AIDS (Others)}{Case numbers for HIV/AIDS (Others)}
 \item{HIV/AIDS (Unknown)}{Case numbers for HIV/AIDS (Unknown)}
+\item{Carbapenem-resistant Enterobacterales infection (total)}{Case numbers for Carbapenem-resistant enterobacteriaceae infection (total)}
+\item{Carbapenem-resistant Enterobacterales infection (Inside Japan)}{Case numbers for Carbapenem-resistant enterobacteriaceae infection (Inside Japan)}
+\item{Carbapenem-resistant Enterobacterales infection (Others)}{Case numbers for Carbapenem-resistant enterobacteriaceae infection (Others)}
+\item{Carbapenem-resistant Enterobacterales infection (Unknown)}{Case numbers for Carbapenem-resistant enterobacteriaceae infection (Unknown)}
 }
 }
 \source{
@@ -438,6 +442,6 @@ place_prefecture
 \description{
 This dataset contains information about the place of infection by prefecture,
 sourced from the Japan Institute for Health Security (JIHS). The data is between
-2001 and 2023.
+2001 and 2024.
 }
 \keyword{datasets}
